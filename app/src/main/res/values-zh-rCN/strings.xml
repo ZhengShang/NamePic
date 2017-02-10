@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="app_name">名图片</string>
+
+    <string name="navigation_drawer_open">打开侧边栏</string>
+    <string name="navigation_drawer_close">关闭侧边栏</string>
+
+    <string name="action_settings">设置</string>
+    <string name="action_settings_sub">在这里自定义自己的风格化名图片</string>
+    <string name="color">颜色</string>
+    <string name="base_pic">底色图片</string>
+    <string name="center_text">中间文字</string>
+    <string name="text">文字</string>
+    <string name="text_count">文字数量</string>
+    <string name="text_size">文字大小</string>
+    <string name="current_value">%1$s\t%2$d</string>
+    <string name="choose_color">选择颜色</string>
+    <string name="text_y_postion">Y轴偏移量</string>
+    <string name="input_name_title">请输入中间文字</string>
+    <string name="ok">设置</string>
+    <string name="cancel">取消</string>
+</resources>

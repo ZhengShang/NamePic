@@ -1,0 +1,21 @@
+<resources>
+    <string name="app_name">NamePic</string>
+
+    <string name="navigation_drawer_open">Open navigation drawer</string>
+    <string name="navigation_drawer_close">Close navigation drawer</string>
+
+    <string name="action_settings">Settings</string>
+    <string name="action_settings_sub">Stylize your own name picture</string>
+    <string name="color">Color</string>
+    <string name="base_pic">BasePicture</string>
+    <string name="center_text">CenterText</string>
+    <string name="text">Text</string>
+    <string name="text_count">TextCount</string>
+    <string name="text_size">TextSize</string>
+    <string name="current_value">%1$s\t%2$d</string>
+    <string name="choose_color">Choose color</string>
+    <string name="text_y_postion">TextYPosition</string>
+    <string name="input_name_title">Input Name Text</string>
+    <string name="ok">Set</string>
+    <string name="cancel">Cancel</string>
+</resources>
