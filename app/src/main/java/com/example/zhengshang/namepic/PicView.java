@@ -19,6 +19,7 @@ public class PicView extends View {
     private int mNameTextCount = Constants.TEXT_COUNT_DEF_VALUE;
     private float mAvgAngle;
     private String mNameText = Constants.DEF_TEXT;
+    private String mNameFont = Constants.DEF_TEXT_FONT;
     private int baseColor = Constants.DEF_BASE_COLOR;
     private int centerTextColor = Constants.DEF_TEXT_COLOR;
     private int mNameTextYPosition;
@@ -35,7 +36,7 @@ public class PicView extends View {
     public PicView(Context context, AttributeSet attrs) {
         super(context, attrs);
         initPaints();
-        setFont("simfang.ttf");
+        setFont(mNameFont);
     }
 
     public PicView(Context context, AttributeSet attrs, int defStyleAttr) {
@@ -54,9 +55,6 @@ public class PicView extends View {
         mNameTextPaint.setTextSize(mNameTextSize);
         // Typeface typeface = Typeface.createFromAsset(this.getContext().getAssets(),"fonts/simfang.ttf");
 //         mNameTextPaint.setTypeface(typeface);
-
-
-        //   mPicPaint = new Paint();/// TODO: 2017/2/10 to be used
 
         //Init avgAngle
         mAvgAngle = 360 / mNameTextCount;
@@ -146,5 +144,13 @@ public class PicView extends View {
 
     public int getYPosition() {
         return yPosition;
+    }
+
+    public String getmNameFont() {
+        return mNameFont;
+    }
+
+    public void setmNameFont(String mNameFont) {
+        this.mNameFont = mNameFont;
     }
 }

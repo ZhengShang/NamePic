@@ -45,4 +45,13 @@ public class TextSettings {
     int getYPosition() {
         return mPicView.getYPosition();
     }
+
+    String getFont() {
+        return mPicView.getmNameFont();
+    }
+
+    void setFont(String name) {
+        mPicView.setFont(name);
+        mPicView.postInvalidate();
+    }
 }

@@ -22,18 +22,20 @@ import com.flask.colorpicker.builder.ColorPickerDialogBuilder;
 import org.adw.library.widgets.discreteseekbar.DiscreteSeekBar;
 
 public class MainActivity extends AppCompatActivity implements View.OnClickListener,
-        CompoundButton.OnCheckedChangeListener, DiscreteSeekBar.OnProgressChangeListener {
+        CompoundButton.OnCheckedChangeListener, DiscreteSeekBar.OnProgressChangeListener,
+        ScrollPicker.ScrollStopLiserer {
     private ColorSettings colorSettings;
     private TextSettings textSettings;
     private RadioButton rbBasePic, rbCenterText;
     private AppCompatRadioButton rbTextCount, rbTextSize, rbYPosition;
-    private TextView tvColor1, tvColor2, tvColor3, tvColor4, tvColor5, tvColor6, tvColor7, tvColor8, tvColor9, tvColor10, tvColor11, tvColor12; // 8 color options
+    private TextView tvColor1, tvColor2, tvColor3, tvColor4, tvColor5, tvColor6, tvColor7, tvColor8, tvColor9, tvColor10, tvColor11, tvColor12; // 12 color options
     private TextView centerText;
     private TextView currentTypeSeekBarValue; //当前选择的类型的数值
     private DiscreteSeekBar mSeekBar;
     private DrawerLayout drawer;
     private LinearLayout naviLayout;
     private NavigationView navigationView;
+    private ScrollPicker scrollPicker;
 
 
     @Override
@@ -100,6 +102,10 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
 
         mSeekBar = (DiscreteSeekBar) naviLayout.findViewById(R.id.seek_bar);
         mSeekBar.setOnProgressChangeListener(this);
+
+        scrollPicker = (ScrollPicker) naviLayout.findViewById(R.id.scroll_picker);
+        scrollPicker.setDatas(Constants.getFontsList());
+        scrollPicker.setScrollStopLiserer(this);
 
         rbTextCount.setChecked(true);
     }
@@ -236,4 +242,10 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
 
         currentTypeSeekBarValue.setText(currentTypeSeekBarValue.getText().toString().replaceAll("-*\\d+", seekBar.getProgress() + "")); //替换数字
     }
+
+    @Override
+    public void onScrolStop(String selectString) {
+        ViewHelper.setFontByNames(scrollPicker.getSelectedString(), textSettings);
+    }
+
 }

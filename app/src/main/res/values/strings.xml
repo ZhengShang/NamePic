@@ -12,10 +12,11 @@
     <string name="text">Text</string>
     <string name="text_count">TextCount</string>
     <string name="text_size">TextSize</string>
-    <string name="current_value">%1$s\t%2$d</string>
+    <string name="current_value">%1$s:\t%2$d</string>
     <string name="choose_color">Choose color</string>
     <string name="text_y_postion">TextYPosition</string>
     <string name="input_name_title">Input Name Text</string>
     <string name="ok">Set</string>
     <string name="cancel">Cancel</string>
+    <string name="text_font">TextFont :</string>
 </resources>

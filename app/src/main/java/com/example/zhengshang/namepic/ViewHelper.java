@@ -72,4 +72,27 @@ class ViewHelper {
         seekBar.setMin(min);
         seekBar.setMax(max);
     }
+
+    static void setFontByNames(String name, TextSettings textSettings) {
+        switch (name) {
+            case "仿宋":
+                textSettings.setFont("simfang.ttf");
+                break;
+            case "微软雅黑":
+                textSettings.setFont("msyh.ttf");
+                break;
+            case "微软雅黑粗体":
+                textSettings.setFont("msyhbd.ttf");
+                break;
+            case "黑体":
+                textSettings.setFont("simhei.ttf");
+                break;
+            case "楷体":
+                textSettings.setFont("simkai.ttf");
+                break;
+            case "宋体":
+                textSettings.setFont("simsun.ttc");
+                break;
+        }
+    }
 }
