@@ -22,6 +22,8 @@ import com.oguzdev.circularfloatingactionmenu.library.FloatingActionMenu;
 
 import org.adw.library.widgets.discreteseekbar.DiscreteSeekBar;
 
+import java.util.Arrays;
+
 public class MainActivity extends AppCompatActivity implements View.OnClickListener,
         CompoundButton.OnCheckedChangeListener, DiscreteSeekBar.OnProgressChangeListener,
         ScrollPicker.ScrollStopLiserer {
@@ -131,7 +133,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         mSeekBar.setOnProgressChangeListener(this);
 
         scrollPicker = (ScrollPicker) naviLayout.findViewById(R.id.scroll_picker);
-        scrollPicker.setDatas(Constants.getFontsList());
+        scrollPicker.setDatas(Arrays.asList(getResources().getStringArray(R.array.fonts_name)));
         scrollPicker.setScrollStopLiserer(this);
 
         rbTextCount.setChecked(true);
@@ -272,7 +274,8 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
 
     @Override
     public void onScrolStop(String selectString) {
-        ViewHelper.setFontByNames(scrollPicker.getSelectedString(), textSettings);
+        String s[] = getResources().getStringArray(R.array.fonts_file_name);
+        textSettings.setFont(s[scrollPicker.getDataPickedIndex()]);
     }
 
 

@@ -93,29 +93,6 @@ class ViewHelper {
         seekBar.setMax(max);
     }
 
-    static void setFontByNames(String name, TextSettings textSettings) {
-        switch (name) {
-            case "仿宋":
-                textSettings.setFont("simfang.ttf");
-                break;
-            case "微软雅黑":
-                textSettings.setFont("msyh.ttf");
-                break;
-            case "微软雅黑粗体":
-                textSettings.setFont("msyhbd.ttf");
-                break;
-            case "黑体":
-                textSettings.setFont("simhei.ttf");
-                break;
-            case "楷体":
-                textSettings.setFont("simkai.ttf");
-                break;
-            case "宋体":
-                textSettings.setFont("simsun.ttc");
-                break;
-        }
-    }
-
     /**
      * A copy of the Android internals  insertImage method, this method populates the
      * meta data with DATE_ADDED and DATE_TAKEN. This fixes a common problem where media

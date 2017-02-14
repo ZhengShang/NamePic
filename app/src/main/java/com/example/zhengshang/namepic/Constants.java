@@ -2,9 +2,6 @@ package com.example.zhengshang.namepic;
 
 import android.graphics.Color;
 
-import java.util.ArrayList;
-import java.util.List;
-
 /**
  * Created by zhengshang on 2017/2/10.
  */
@@ -34,18 +31,6 @@ public class Constants {
     static final int DEF_TEXT_RADIUS = 200;
 
     static final int DEF_BACKGROUND_PIC = R.drawable.pic_clover;
-
-    static List<String> getFontsList() {
-        List<String> list = new ArrayList<>();
-       list.add("仿宋");
-       list.add("微软雅黑");
-       list.add("微软雅黑粗体");
-       list.add("黑体");
-       list.add("楷体");
-       list.add("宋体");
-        return list;
-    }
-
 
 
 }

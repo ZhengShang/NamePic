@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string-array name="fonts_name">
+        <item>仿宋</item>
+        <item>微软雅黑</item>
+        <item>微软雅黑粗体</item>
+        <item>黑体</item>
+        <item>楷体</item>
+        <item>宋体</item>
+    </string-array>
+
+    <string-array name="fonts_file_name">
+        <item>simfang.ttf</item>
+        <item>msyh.ttf</item>
+        <item>msyhbd.ttf</item>
+        <item>simhei.ttf</item>
+        <item>simkai.ttf</item>
+        <item>simsun.ttc</item>
+    </string-array>
+
+</resources>
