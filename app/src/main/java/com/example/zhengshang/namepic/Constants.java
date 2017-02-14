@@ -10,6 +10,9 @@ import java.util.List;
  */
 
 public class Constants {
+    static final int TYPE_SAVE = 1;
+    static final int TYPE_SHARE = 2;
+
     static final int TEXT_COUNT_MIN_VALUE = 1;
     static final int TEXT_COUNT_MAX_VALUE = 18;
     static final int TEXT_COUNT_DEF_VALUE = 9;
@@ -30,7 +33,9 @@ public class Constants {
     static final int DEF_Y_POSITION = -200;
     static final int DEF_TEXT_RADIUS = 200;
 
-    public static List<String> getFontsList() {
+    static final int DEF_BACKGROUND_PIC = R.drawable.pic_clover;
+
+    static List<String> getFontsList() {
         List<String> list = new ArrayList<>();
        list.add("仿宋");
        list.add("微软雅黑");
@@ -40,4 +45,7 @@ public class Constants {
        list.add("宋体");
         return list;
     }
+
+
+
 }

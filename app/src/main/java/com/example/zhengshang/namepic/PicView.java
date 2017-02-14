@@ -25,7 +25,7 @@ public class PicView extends View {
     private int mNameTextYPosition;
     private int yPosition = Constants.DEF_Y_POSITION;
     private int mTextRadius = Constants.DEF_TEXT_RADIUS;
-
+    private int backgroundPic = Constants.DEF_BACKGROUND_PIC;
 
     public PicView(Context context) {
         super(context);
@@ -46,16 +46,15 @@ public class PicView extends View {
 
     private void initPaints() {
         //initPaints Paints
-        //  mBgPaint = new Paint();
         mBgPaint.setColor(baseColor);
         mBgPaint.setStyle(Paint.Style.FILL);
 
-        // mNameTextPaint = new Paint();
         mNameTextPaint.setColor(centerTextColor);
         mNameTextPaint.setTextSize(mNameTextSize);
-        // Typeface typeface = Typeface.createFromAsset(this.getContext().getAssets(),"fonts/simfang.ttf");
-//         mNameTextPaint.setTypeface(typeface);
+        mNameTextPaint.setAntiAlias(true);
 
+//        mPicPaint.setStyle(Paint.Style.FILL);
+//        mPicPaint.setColor(Color.RED);
         //Init avgAngle
         mAvgAngle = 360 / mNameTextCount;
 

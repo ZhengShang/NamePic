@@ -4,13 +4,13 @@ import android.graphics.drawable.ColorDrawable;
 import android.os.Bundle;
 import android.support.design.widget.FloatingActionButton;
 import android.support.design.widget.NavigationView;
-import android.support.design.widget.Snackbar;
 import android.support.v4.view.GravityCompat;
 import android.support.v4.widget.DrawerLayout;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.AppCompatRadioButton;
 import android.view.View;
 import android.widget.CompoundButton;
+import android.widget.FrameLayout;
 import android.widget.LinearLayout;
 import android.widget.RadioButton;
 import android.widget.TextView;
@@ -18,6 +18,7 @@ import android.widget.TextView;
 import com.flask.colorpicker.ColorPickerView;
 import com.flask.colorpicker.OnColorSelectedListener;
 import com.flask.colorpicker.builder.ColorPickerDialogBuilder;
+import com.oguzdev.circularfloatingactionmenu.library.FloatingActionMenu;
 
 import org.adw.library.widgets.discreteseekbar.DiscreteSeekBar;
 
@@ -36,19 +37,45 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
     private LinearLayout naviLayout;
     private NavigationView navigationView;
     private ScrollPicker scrollPicker;
-
+    private FrameLayout contentMain;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
-        FloatingActionButton fab = (FloatingActionButton) findViewById(R.id.fab);
+        contentMain = (FrameLayout) findViewById(R.id.content_main);
+
+        final FloatingActionButton fab = (FloatingActionButton) findViewById(R.id.fab);
+
+        final FloatingActionMenu actionMenu = new FloatingActionMenu.Builder(MainActivity.this)
+                .addSubActionView(ViewHelper.generateButton(MainActivity.this,
+                        getResources().getString(R.string.share), getResources().getDrawable(R.drawable.oval_blue), new View.OnClickListener() {
+                            @Override
+                            public void onClick(View view) {
+                                ViewHelper.saveOrShare(MainActivity.this, contentMain, Constants.TYPE_SHARE);
+                                fab.callOnClick();
+                            }
+                        }), 150, 150)
+                .addSubActionView(ViewHelper.generateButton(MainActivity.this,
+                        getResources().getString(R.string.save), getResources().getDrawable(R.drawable.oval_orange), new View.OnClickListener() {
+                            @Override
+                            public void onClick(View view) {
+                                ViewHelper.saveOrShare(MainActivity.this, contentMain, Constants.TYPE_SAVE);
+                                fab.callOnClick();
+                            }
+                        }), 150, 150)
+                .attachTo(fab)
+                .build();
+
         fab.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                Snackbar.make(view, "Replace with your own action", Snackbar.LENGTH_LONG)
-                        .setAction("Action", null).show();
+                if (actionMenu.isOpen()) {
+                    actionMenu.close(true);
+                } else {
+                    actionMenu.open(true);
+                }
             }
         });
 
@@ -248,4 +275,10 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         ViewHelper.setFontByNames(scrollPicker.getSelectedString(), textSettings);
     }
 
+
+    @Override
+    protected void onDestroy() {
+        ViewHelper.deleteSharePics(MainActivity.this);
+        super.onDestroy();
+    }
 }

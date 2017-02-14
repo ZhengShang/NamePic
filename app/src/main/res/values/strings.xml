@@ -19,4 +19,6 @@
     <string name="ok">Set</string>
     <string name="cancel">Cancel</string>
     <string name="text_font">TextFont :</string>
+    <string name="share">Share</string>
+    <string name="save">Save</string>
 </resources>
