@@ -7,7 +7,7 @@
     <string name="action_settings">Settings</string>
     <string name="action_settings_sub">Stylize your own name picture</string>
     <string name="color">Color</string>
-    <string name="base_pic">BasePicture</string>
+    <string name="base_pic">BaseColor</string>
     <string name="center_text">CenterText</string>
     <string name="text">Text</string>
     <string name="text_count">TextCount</string>

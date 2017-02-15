@@ -312,7 +312,7 @@ public class ScrollPicker extends View {
             postInvalidate();
         }
         if (scrollStopLiserer != null) {
-            scrollStopLiserer.onScrolStop(getSelectedString());
+            scrollStopLiserer.onScrollStop(getSelectedString());
         }
     }
 
@@ -436,6 +436,6 @@ public class ScrollPicker extends View {
         /**
          * 返回当前滑动停止时所选择的字符串
          */
-        void onScrolStop(String selectString);
+        void onScrollStop(String selectString);
     }
 }

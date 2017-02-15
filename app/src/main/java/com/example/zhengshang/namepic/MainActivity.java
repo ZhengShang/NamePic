@@ -273,7 +273,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
     }
 
     @Override
-    public void onScrolStop(String selectString) {
+    public void onScrollStop(String selectString) {
         String s[] = getResources().getStringArray(R.array.fonts_file_name);
         textSettings.setFont(s[scrollPicker.getDataPickedIndex()]);
     }
