@@ -21,4 +21,6 @@
     <string name="text_font">TextFont :</string>
     <string name="share">Share</string>
     <string name="save">Save</string>
+    <string name="back_pic">BackPicture</string>
+    <string name="show_back_pick">Show BackPicture</string>
 </resources>

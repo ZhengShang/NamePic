@@ -218,14 +218,14 @@
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:orientation="horizontal"
-            android:gravity="center">
+            android:gravity="center"
+            android:orientation="horizontal">
 
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:textColor="@android:color/black"
-                android:text="@string/text_font"/>
+                android:text="@string/text_font"
+                android:textColor="@android:color/black" />
 
             <com.example.zhengshang.namepic.ScrollPicker
                 android:id="@+id/scroll_picker"
@@ -234,5 +234,33 @@
 
         </LinearLayout>
 
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/def_margin"
+            android:background="@drawable/settings_text_bg"
+            android:padding="2dp"
+            android:text="@string/back_pic"
+            android:textColor="@android:color/white" />
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal">
+
+            <TextView
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:text="@string/show_back_pick"
+                android:textColor="@android:color/black" />
+
+            <android.support.v7.widget.AppCompatCheckBox
+                android:id="@+id/show_back_pic"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:checked="true"
+                app:buttonTint="@color/colorGreen" />
+        </LinearLayout>
     </LinearLayout>
 </LinearLayout>

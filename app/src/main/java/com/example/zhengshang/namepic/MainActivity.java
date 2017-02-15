@@ -7,10 +7,12 @@ import android.support.design.widget.NavigationView;
 import android.support.v4.view.GravityCompat;
 import android.support.v4.widget.DrawerLayout;
 import android.support.v7.app.AppCompatActivity;
+import android.support.v7.widget.AppCompatCheckBox;
 import android.support.v7.widget.AppCompatRadioButton;
 import android.view.View;
 import android.widget.CompoundButton;
 import android.widget.FrameLayout;
+import android.widget.ImageView;
 import android.widget.LinearLayout;
 import android.widget.RadioButton;
 import android.widget.TextView;
@@ -31,6 +33,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
     private TextSettings textSettings;
     private RadioButton rbBasePic, rbCenterText;
     private AppCompatRadioButton rbTextCount, rbTextSize, rbYPosition;
+    private AppCompatCheckBox cbShowBackPic;
     private TextView tvColor1, tvColor2, tvColor3, tvColor4, tvColor5, tvColor6, tvColor7, tvColor8, tvColor9, tvColor10, tvColor11, tvColor12; // 12 color options
     private TextView centerText;
     private TextView currentTypeSeekBarValue; //当前选择的类型的数值
@@ -40,6 +43,8 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
     private NavigationView navigationView;
     private ScrollPicker scrollPicker;
     private FrameLayout contentMain;
+    private ImageView backPicture;
+    private FloatingActionMenu actionMenu;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -50,7 +55,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
 
         final FloatingActionButton fab = (FloatingActionButton) findViewById(R.id.fab);
 
-        final FloatingActionMenu actionMenu = new FloatingActionMenu.Builder(MainActivity.this)
+        actionMenu = new FloatingActionMenu.Builder(MainActivity.this)
                 .addSubActionView(ViewHelper.generateButton(MainActivity.this,
                         getResources().getString(R.string.share), getResources().getDrawable(R.drawable.oval_blue), new View.OnClickListener() {
                             @Override
@@ -136,6 +141,10 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         scrollPicker.setDatas(Arrays.asList(getResources().getStringArray(R.array.fonts_name)));
         scrollPicker.setScrollStopLiserer(this);
 
+        backPicture = (ImageView) findViewById(R.id.back_pic);
+        cbShowBackPic = (AppCompatCheckBox) naviLayout.findViewById(R.id.show_back_pic);
+        cbShowBackPic.setOnCheckedChangeListener(this);
+
         rbTextCount.setChecked(true);
     }
 
@@ -149,6 +158,8 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
 //        DrawerLayout drawer = (DrawerLayout) findViewById(R.id.drawer_layout);
         if (drawer.isDrawerOpen(GravityCompat.START)) {
             drawer.closeDrawer(GravityCompat.START);
+        } else if (actionMenu.isOpen()) {
+            actionMenu.close(true);
         } else {
             super.onBackPressed();
         }
@@ -221,6 +232,11 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
 
     @Override
     public void onCheckedChanged(CompoundButton compoundButton, boolean b) {
+        if (compoundButton.getId() == R.id.show_back_pic) {
+            backPicture.setVisibility(compoundButton.isChecked() ? View.VISIBLE : View.GONE);
+            return;
+        }
+
         if (!compoundButton.isChecked()) {
             return;
         }

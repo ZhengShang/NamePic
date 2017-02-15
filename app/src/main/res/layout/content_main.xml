@@ -15,6 +15,7 @@
         android:layout_height="match_parent" />
 
     <ImageView
+        android:id="@+id/back_pic"
         android:layout_width="100dp"
         android:layout_height="100dp"
         android:src="@drawable/pic_heart"

@@ -22,4 +22,6 @@
     <string name="text_font">字体 :</string>
     <string name="share">分享</string>
     <string name="save">保存</string>
+    <string name="back_pic">背景图片</string>
+    <string name="show_back_pick">显示背景图片</string>
 </resources>
