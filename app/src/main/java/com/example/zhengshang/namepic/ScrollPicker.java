@@ -15,6 +15,8 @@ import android.view.View;
 
 import java.util.List;
 
+import static android.content.Context.MODE_PRIVATE;
+
 public class ScrollPicker extends View {
 
     private static final int HANDLER_WHAT_SCROLLING = 1;
@@ -31,14 +33,14 @@ public class ScrollPicker extends View {
     private int mFlingMinVelocity = 150;
 
     private boolean mCanWrap = false;
-
+    private boolean hasUpdateFirstItem;
     private int mDefaultPickedIndex = 0;
 
     private int mDefaultScrollByMills = 300;
     private int mDefaultScrollByMillsMax = 1500;
     private int mDefaultScrollByMillsMin = 300;
 
-    private List<String> datas ;
+    private List<String> datas;
 
     private int mViewWidth;
     private int mViewHeight;
@@ -84,6 +86,7 @@ public class ScrollPicker extends View {
         mPaintText.setTextSize(mPaintTextSize);
         mPaintText.setTextAlign(Paint.Align.CENTER);
 
+        mDefaultPickedIndex = context.getSharedPreferences(Constants.SHARED_PREFS_NAME, MODE_PRIVATE).getInt(Constants.TEXT_SET_FONT, 0);
         initHandler();
     }
 
@@ -127,10 +130,10 @@ public class ScrollPicker extends View {
             if (i == mShowCount / 2) {
                 fraction = (float) (mItemHeight + mCurrDrawFirstItemY) / mItemHeight;
                 textColor = evaluate(fraction, mStartValueColor, mEndValueColor);
-                textSize = getEvaluateSize(fraction, mPaintTextSize, mPaintTextSize+30f);
+                textSize = getEvaluateSize(fraction, mPaintTextSize, mPaintTextSize + 30f);
             } else if (i == mShowCount / 2 + 1) {
                 textColor = evaluate(1 - fraction, mStartValueColor, mEndValueColor);
-                textSize = getEvaluateSize(1 - fraction, mPaintTextSize, mPaintTextSize+30f);
+                textSize = getEvaluateSize(1 - fraction, mPaintTextSize, mPaintTextSize + 30f);
             } else {
                 textColor = mStartValueColor;
                 textSize = mPaintTextSize;
@@ -191,6 +194,7 @@ public class ScrollPicker extends View {
 
     //根据mCurrDrawGlobalY得到第一个item的位置信息,后续的item根据第一个item推算得到
     private void updateFirstItemIndexAndY() {
+        hasUpdateFirstItem = true;
         mCurrDrawFirstItemIndex = (int) Math.floor((float) mCurrDrawGlobalY / mItemHeight);
         mCurrDrawFirstItemY = -(mCurrDrawGlobalY - mCurrDrawFirstItemIndex * mItemHeight);
     }
@@ -354,6 +358,10 @@ public class ScrollPicker extends View {
         postInvalidate();
     }
 
+    public boolean hasUpdateFirstItem() {
+        return hasUpdateFirstItem;
+    }
+
     //获取当前选中的数据位置
     public int getDataPickedIndex() {
         int index;
@@ -408,15 +416,15 @@ public class ScrollPicker extends View {
         this.mCanWrap = wrap;
     }
 
-    public void  setDatas(List<String> datas){
+    public void setDatas(List<String> datas) {
         this.datas = datas;
     }
 
-    public String getSelectedString(){
+    public String getSelectedString() {
         String result;
         try {
             result = datas.get(getDataPickedIndex());
-        }catch (Exception e){
+        } catch (Exception e) {
             result = null;
         }
         return result;
@@ -428,7 +436,7 @@ public class ScrollPicker extends View {
         return super.dispatchTouchEvent(ev);
     }
 
-    public void setScrollStopLiserer(ScrollStopLiserer liserer){
+    public void setScrollStopLiserer(ScrollStopLiserer liserer) {
         this.scrollStopLiserer = liserer;
     }
 

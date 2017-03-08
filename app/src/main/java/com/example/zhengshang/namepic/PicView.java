@@ -14,7 +14,6 @@ import android.view.View;
 public class PicView extends View {
     private Paint mBgPaint = new Paint();
     private Paint mNameTextPaint = new Paint();
-    private Paint mPicPaint;
     private int mNameTextSize = Constants.TEXT_SIZE_DEF_VALUE;
     private int mNameTextCount = Constants.TEXT_COUNT_DEF_VALUE;
     private float mAvgAngle;
@@ -25,7 +24,6 @@ public class PicView extends View {
     private int mNameTextYPosition;
     private int yPosition = Constants.DEF_Y_POSITION;
     private int mTextRadius = Constants.DEF_TEXT_RADIUS;
-    private int backgroundPic = Constants.DEF_BACKGROUND_PIC;
 
     public PicView(Context context) {
         super(context);
@@ -83,7 +81,6 @@ public class PicView extends View {
             canvas.save();
         }
 
-        // TODO: 2017/2/10 draw background picture ..
     }
 
     @Override
@@ -147,9 +144,5 @@ public class PicView extends View {
 
     public String getmNameFont() {
         return mNameFont;
-    }
-
-    public void setmNameFont(String mNameFont) {
-        this.mNameFont = mNameFont;
     }
 }

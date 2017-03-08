@@ -6,6 +6,7 @@ import android.content.ContentValues;
 import android.content.Context;
 import android.content.DialogInterface;
 import android.content.Intent;
+import android.content.SharedPreferences;
 import android.graphics.Bitmap;
 import android.graphics.Color;
 import android.graphics.Matrix;
@@ -20,6 +21,7 @@ import android.widget.Button;
 import android.widget.EditText;
 import android.widget.FrameLayout;
 import android.widget.LinearLayout;
+import android.widget.RadioGroup;
 import android.widget.TextView;
 import android.widget.Toast;
 
@@ -231,6 +233,9 @@ class ViewHelper {
         }
     }
 
+    /**
+     * 删除点击分享时产生的临时文件
+     */
     static void deleteSharePics(Context context) {
         ContentResolver contentResolver = context.getContentResolver();
         for (Uri uri : tmpShareUriList) {
@@ -238,4 +243,26 @@ class ViewHelper {
         }
     }
 
+    /**
+     * 保存当前选中的radio的索引
+     */
+    static void saveGroupConfig(RadioGroup radioGroup, SharedPreferences.Editor editor) {
+        switch (radioGroup.getCheckedRadioButtonId()) {
+            case R.id.color_base_pic:
+                editor.putInt(Constants.COLOR_SET_GROUP_INDEX, 0);
+                break;
+            case R.id.color_center_text:
+                editor.putInt(Constants.COLOR_SET_GROUP_INDEX, 1);
+                break;
+            case R.id.rb_text_count:
+                editor.putInt(Constants.TEXT_SET_GROUP_INDEX, 0);
+                break;
+            case R.id.rb_text_size:
+                editor.putInt(Constants.TEXT_SET_GROUP_INDEX, 1);
+                break;
+            case R.id.rb_y_position:
+                editor.putInt(Constants.TEXT_SET_Y_POSITION, 2);
+                break;
+        }
+    }
 }

@@ -24,4 +24,8 @@ public class ColorSettings {
     int getBasePicColor() {
         return mPicView.getBaseColor();
     }
+
+    int getTextColor() {
+        return mPicView.getCenterTextColor();
+    }
 }

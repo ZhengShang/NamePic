@@ -15,6 +15,7 @@
         android:textColor="@android:color/white" />
 
     <RadioGroup
+        android:id="@+id/rg_color"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_marginTop="@dimen/def_margin"
@@ -171,6 +172,7 @@
             android:padding="4dp">
 
             <RadioGroup
+                android:id="@+id/rg_text"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:orientation="vertical">

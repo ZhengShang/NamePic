@@ -1,5 +1,6 @@
 package com.example.zhengshang.namepic;
 
+import android.content.SharedPreferences;
 import android.graphics.drawable.ColorDrawable;
 import android.os.Bundle;
 import android.support.design.widget.FloatingActionButton;
@@ -15,6 +16,7 @@ import android.widget.FrameLayout;
 import android.widget.ImageView;
 import android.widget.LinearLayout;
 import android.widget.RadioButton;
+import android.widget.RadioGroup;
 import android.widget.TextView;
 
 import com.flask.colorpicker.ColorPickerView;
@@ -32,6 +34,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
     private ColorSettings colorSettings;
     private TextSettings textSettings;
     private RadioButton rbBasePic, rbCenterText;
+    private RadioGroup rgColor, rgText;
     private AppCompatRadioButton rbTextCount, rbTextSize, rbYPosition;
     private AppCompatCheckBox cbShowBackPic;
     private TextView tvColor1, tvColor2, tvColor3, tvColor4, tvColor5, tvColor6, tvColor7, tvColor8, tvColor9, tvColor10, tvColor11, tvColor12; // 12 color options
@@ -45,6 +48,8 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
     private FrameLayout contentMain;
     private ImageView backPicture;
     private FloatingActionMenu actionMenu;
+
+    private SharedPreferences mSharedPreferences;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -94,6 +99,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         colorSettings = new ColorSettings(picView);
         textSettings = new TextSettings(picView);
 
+        rgColor = (RadioGroup) naviLayout.findViewById(R.id.rg_color);
         rbBasePic = (RadioButton) naviLayout.findViewById(R.id.color_base_pic);
         rbCenterText = (RadioButton) naviLayout.findViewById(R.id.color_center_text);
 
@@ -126,6 +132,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         centerText = (TextView) naviLayout.findViewById(R.id.center_text);
         centerText.setOnClickListener(this);
 
+        rgText = (RadioGroup) naviLayout.findViewById(R.id.rg_text);
         rbTextCount = (AppCompatRadioButton) naviLayout.findViewById(R.id.rb_text_count);
         rbTextSize = (AppCompatRadioButton) naviLayout.findViewById(R.id.rb_text_size);
         rbYPosition = (AppCompatRadioButton) naviLayout.findViewById(R.id.rb_y_position);
@@ -145,7 +152,25 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         cbShowBackPic = (AppCompatCheckBox) naviLayout.findViewById(R.id.show_back_pic);
         cbShowBackPic.setOnCheckedChangeListener(this);
 
-        rbTextCount.setChecked(true);
+        loadViewsStatus();
+    }
+
+    //加载控件初始状态
+    private void loadViewsStatus() {
+        mSharedPreferences = getSharedPreferences(Constants.SHARED_PREFS_NAME, MODE_PRIVATE);
+        colorSettings.setBasePicColor(mSharedPreferences.getInt(Constants.COLOR_SET_BASE_COLOR, Constants.DEF_BASE_COLOR));
+        colorSettings.setCenterTextColor(mSharedPreferences.getInt(Constants.COLOR_SET_TEXT_COLOR, Constants.DEF_TEXT_COLOR));
+        ((RadioButton) rgColor.getChildAt(mSharedPreferences.getInt(Constants.COLOR_SET_GROUP_INDEX, 0))).setChecked(true);
+
+        textSettings.setNameText(mSharedPreferences.getString(Constants.TEXT_SET_CENTER_TEXT, Constants.DEF_TEXT));
+        centerText.setText(textSettings.getNameText());
+        textSettings.setTextCount(mSharedPreferences.getInt(Constants.TEXT_SET_COUNT, Constants.TEXT_COUNT_DEF_VALUE));
+        textSettings.setTextSize(mSharedPreferences.getInt(Constants.TEXT_SET_SIZE, Constants.TEXT_SIZE_DEF_VALUE));
+        textSettings.setTextYPosition(mSharedPreferences.getInt(Constants.TEXT_SET_Y_POSITION, Constants.DEF_Y_POSITION));
+        textSettings.setFont(getResources().getStringArray(R.array.fonts_file_name)[mSharedPreferences.getInt(Constants.TEXT_SET_FONT, 0)]);
+        ((AppCompatRadioButton) rgText.getChildAt(mSharedPreferences.getInt(Constants.TEXT_SET_GROUP_INDEX, 0))).setChecked(true);
+
+        backPicture.setVisibility(mSharedPreferences.getBoolean(Constants.PIC_SET_SHOW, Constants.DEF_PIC_SHOW) ? View.VISIBLE : View.GONE);
     }
 
     @Override
@@ -294,6 +319,24 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         textSettings.setFont(s[scrollPicker.getDataPickedIndex()]);
     }
 
+    @Override
+    protected void onStop() {
+        SharedPreferences.Editor editor = getSharedPreferences(Constants.SHARED_PREFS_NAME, MODE_PRIVATE).edit();
+        ViewHelper.saveGroupConfig(rgColor, editor);
+        ViewHelper.saveGroupConfig(rgText, editor);
+        editor.putInt(Constants.COLOR_SET_BASE_COLOR, colorSettings.getBasePicColor());
+        editor.putInt(Constants.COLOR_SET_TEXT_COLOR, colorSettings.getTextColor());
+        editor.putString(Constants.TEXT_SET_CENTER_TEXT, textSettings.getNameText());
+        editor.putInt(Constants.TEXT_SET_COUNT, textSettings.getTextCount());
+        editor.putInt(Constants.TEXT_SET_SIZE, textSettings.getTextSize());
+        editor.putInt(Constants.TEXT_SET_Y_POSITION, textSettings.getYPosition());
+        editor.putBoolean(Constants.PIC_SET_SHOW, cbShowBackPic.isChecked());
+        if (scrollPicker.hasUpdateFirstItem()) {
+            editor.putInt(Constants.TEXT_SET_FONT, scrollPicker.getDataPickedIndex());
+        }
+        editor.apply();
+        super.onStop();
+    }
 
     @Override
     protected void onDestroy() {
