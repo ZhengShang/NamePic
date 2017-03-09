@@ -163,6 +163,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
     //加载控件初始状态
     private void loadViewsStatus() {
         mSharedPreferences = getSharedPreferences(Constants.SHARED_PREFS_NAME, MODE_PRIVATE);
+        tvColor11.setBackgroundColor(mSharedPreferences.getInt(Constants.COLOR_SET_TV11, 0xff33b5e5));
         colorSettings.setBasePicColor(mSharedPreferences.getInt(Constants.COLOR_SET_BASE_COLOR, Constants.DEF_BASE_COLOR));
         colorSettings.setCenterTextColor(mSharedPreferences.getInt(Constants.COLOR_SET_TEXT_COLOR, Constants.DEF_TEXT_COLOR));
         ((RadioButton) rgColor.getChildAt(mSharedPreferences.getInt(Constants.COLOR_SET_GROUP_INDEX, 0))).setChecked(true);
@@ -209,6 +210,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
                         .setOnColorSelectedListener(new OnColorSelectedListener() {
                             @Override
                             public void onColorSelected(int selectedColor) {
+                                tvColor11.setBackgroundColor(selectedColor);
                                 doSetColor(selectedColor);
                             }
                         })
@@ -345,6 +347,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         SharedPreferences.Editor editor = getSharedPreferences(Constants.SHARED_PREFS_NAME, MODE_PRIVATE).edit();
         ViewHelper.saveGroupConfig(rgColor, editor);
         ViewHelper.saveGroupConfig(rgText, editor);
+        editor.putInt(Constants.COLOR_SET_TV11, ((ColorDrawable) tvColor11.getBackground()).getColor());
         editor.putInt(Constants.COLOR_SET_BASE_COLOR, colorSettings.getBasePicColor());
         editor.putInt(Constants.COLOR_SET_TEXT_COLOR, colorSettings.getTextColor());
         editor.putString(Constants.TEXT_SET_CENTER_TEXT, textSettings.getNameText());

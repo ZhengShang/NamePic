@@ -37,6 +37,7 @@ public class Constants {
      * 如下为需要保存的设置信息
      */
     static final String SHARED_PREFS_NAME = "namePic";
+    static final String COLOR_SET_TV11 = "color_set_tv11";      //颜色选项里面的第11个选项的颜色值
     static final String COLOR_SET_GROUP_INDEX = "color_set_group_index";      //颜色组的radioGroup选中的index
     static final String COLOR_SET_BASE_COLOR = "color_set_base_color";      //底色
     static final String COLOR_SET_TEXT_COLOR = "color_set_text_color";      //文字颜色
