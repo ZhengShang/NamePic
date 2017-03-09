@@ -38,7 +38,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
     private RadioGroup rgColor, rgText;
     private AppCompatRadioButton rbTextCount, rbTextSize, rbYPosition;
     private AppCompatCheckBox cbShowBackPic;
-    private TextView tvColor1, tvColor2, tvColor3, tvColor4, tvColor5, tvColor6, tvColor7, tvColor8, tvColor9, tvColor10, tvColor11, tvColor12; // 12 color options
+    private TextView tvColor11;
     private TextView centerText;
     private TextView currentTypeSeekBarValue; //当前选择的类型的数值
     private DiscreteSeekBar mSeekBar;
@@ -49,9 +49,6 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
     private FrameLayout contentMain;
     private ImageView backPicture;
     private FloatingActionMenu actionMenu;
-
-    private SharedPreferences mSharedPreferences;
-    private int mCurrentColorOptIndex;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -108,18 +105,18 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         rbCenterText.setOnCheckedChangeListener(this);
 
         colorOptionsLayout = (LinearLayout) naviLayout.findViewById(R.id.color_options_layout);
-        tvColor1 = (TextView) naviLayout.findViewById(R.id.color_option_1);
-        tvColor2 = (TextView) naviLayout.findViewById(R.id.color_option_2);
-        tvColor3 = (TextView) naviLayout.findViewById(R.id.color_option_3);
-        tvColor4 = (TextView) naviLayout.findViewById(R.id.color_option_4);
-        tvColor5 = (TextView) naviLayout.findViewById(R.id.color_option_5);
-        tvColor6 = (TextView) naviLayout.findViewById(R.id.color_option_6);
-        tvColor7 = (TextView) naviLayout.findViewById(R.id.color_option_7);
-        tvColor8 = (TextView) naviLayout.findViewById(R.id.color_option_8);
-        tvColor9 = (TextView) naviLayout.findViewById(R.id.color_option_9);
-        tvColor10 = (TextView) naviLayout.findViewById(R.id.color_option_10);
+        TextView tvColor1 = (TextView) naviLayout.findViewById(R.id.color_option_1);
+        TextView tvColor2 = (TextView) naviLayout.findViewById(R.id.color_option_2);
+        TextView tvColor3 = (TextView) naviLayout.findViewById(R.id.color_option_3);
+        TextView tvColor4 = (TextView) naviLayout.findViewById(R.id.color_option_4);
+        TextView tvColor5 = (TextView) naviLayout.findViewById(R.id.color_option_5);
+        TextView tvColor6 = (TextView) naviLayout.findViewById(R.id.color_option_6);
+        TextView tvColor7 = (TextView) naviLayout.findViewById(R.id.color_option_7);
+        TextView tvColor8 = (TextView) naviLayout.findViewById(R.id.color_option_8);
+        TextView tvColor9 = (TextView) naviLayout.findViewById(R.id.color_option_9);
+        TextView tvColor10 = (TextView) naviLayout.findViewById(R.id.color_option_10);
         tvColor11 = (TextView) naviLayout.findViewById(R.id.color_option_11);
-        tvColor12 = (TextView) naviLayout.findViewById(R.id.color_option_12);
+        TextView tvColor12 = (TextView) naviLayout.findViewById(R.id.color_option_12);
 
         tvColor1.setOnClickListener(this);
         tvColor2.setOnClickListener(this);
@@ -162,7 +159,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
 
     //加载控件初始状态
     private void loadViewsStatus() {
-        mSharedPreferences = getSharedPreferences(Constants.SHARED_PREFS_NAME, MODE_PRIVATE);
+        SharedPreferences mSharedPreferences = getSharedPreferences(Constants.SHARED_PREFS_NAME, MODE_PRIVATE);
         tvColor11.setBackgroundColor(mSharedPreferences.getInt(Constants.COLOR_SET_TV11, 0xff33b5e5));
         colorSettings.setBasePicColor(mSharedPreferences.getInt(Constants.COLOR_SET_BASE_COLOR, Constants.DEF_BASE_COLOR));
         colorSettings.setCenterTextColor(mSharedPreferences.getInt(Constants.COLOR_SET_TEXT_COLOR, Constants.DEF_TEXT_COLOR));
