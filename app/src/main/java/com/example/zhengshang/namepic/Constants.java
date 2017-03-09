@@ -20,7 +20,6 @@ public class Constants {
 
     static final int Y_POSITION_MIN_VALUE = -500;
     static final int Y_POSITION_MAX_VALUE = 300;
-    static final int Y_POSITION_DEF_VALUE = 0;
 
     static final String DEF_TEXT = "连";
     static final String DEF_TEXT_FONT = "simfang.ttf";
@@ -39,7 +38,6 @@ public class Constants {
      */
     static final String SHARED_PREFS_NAME = "namePic";
     static final String COLOR_SET_GROUP_INDEX = "color_set_group_index";      //颜色组的radioGroup选中的index
-    static final String COLOR_SET_CURRENT_INDEX = "color_set_current_index";    //颜色组当前TextView选中的index
     static final String COLOR_SET_BASE_COLOR = "color_set_base_color";      //底色
     static final String COLOR_SET_TEXT_COLOR = "color_set_text_color";      //文字颜色
     static final String TEXT_SET_CENTER_TEXT = "text_set_center_text";    //中间显示的文字
