@@ -1,6 +1,7 @@
 package com.example.zhengshang.namepic;
 
 import android.content.SharedPreferences;
+import android.graphics.Color;
 import android.graphics.drawable.ColorDrawable;
 import android.os.Bundle;
 import android.support.design.widget.FloatingActionButton;
@@ -42,7 +43,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
     private TextView currentTypeSeekBarValue; //当前选择的类型的数值
     private DiscreteSeekBar mSeekBar;
     private DrawerLayout drawer;
-    private LinearLayout naviLayout;
+    private LinearLayout naviLayout, colorOptionsLayout;
     private NavigationView navigationView;
     private ScrollPicker scrollPicker;
     private FrameLayout contentMain;
@@ -50,6 +51,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
     private FloatingActionMenu actionMenu;
 
     private SharedPreferences mSharedPreferences;
+    private int mCurrentColorOptIndex;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -102,7 +104,10 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         rgColor = (RadioGroup) naviLayout.findViewById(R.id.rg_color);
         rbBasePic = (RadioButton) naviLayout.findViewById(R.id.color_base_pic);
         rbCenterText = (RadioButton) naviLayout.findViewById(R.id.color_center_text);
+        rbBasePic.setOnCheckedChangeListener(this);
+        rbCenterText.setOnCheckedChangeListener(this);
 
+        colorOptionsLayout = (LinearLayout) naviLayout.findViewById(R.id.color_options_layout);
         tvColor1 = (TextView) naviLayout.findViewById(R.id.color_option_1);
         tvColor2 = (TextView) naviLayout.findViewById(R.id.color_option_2);
         tvColor3 = (TextView) naviLayout.findViewById(R.id.color_option_3);
@@ -221,18 +226,6 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
             case R.id.color_option_9:
             case R.id.color_option_10:
             case R.id.color_option_11:
-                tvColor1.setText(null);
-                tvColor2.setText(null);
-                tvColor3.setText(null);
-                tvColor4.setText(null);
-                tvColor5.setText(null);
-                tvColor6.setText(null);
-                tvColor7.setText(null);
-                tvColor8.setText(null);
-                tvColor9.setText(null);
-                tvColor10.setText(null);
-                tvColor11.setText(null);
-                ((TextView) v).setText("✓");
                 doSetColor(((ColorDrawable) v.getBackground()).getColor());
                 break;
             case R.id.center_text:
@@ -252,8 +245,30 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         if (rbCenterText.isChecked()) {
             colorSettings.setCenterTextColor(color);
         }
+        setCheckText(color);
     }
 
+    private void setCheckText(int color) {
+        int count = 0;
+        for (int i = 0; i < colorOptionsLayout.getChildCount(); i++) {
+            LinearLayout layout = (LinearLayout) colorOptionsLayout.getChildAt(i);
+            for (int i1 = 0; i1 < layout.getChildCount(); i1++) {
+                count++;
+                if (count == 12) {
+                    return;
+                }
+                TextView view = (TextView) layout.getChildAt(i1);
+                if (((ColorDrawable) view.getBackground()).getColor() == color) {
+                    if (color == -1) {
+                        view.setTextColor(Color.BLACK);
+                    }
+                    view.setText("✓");
+                } else {
+                    view.setText(null);
+                }
+            }
+        }
+    }
 
     @Override
     public void onCheckedChanged(CompoundButton compoundButton, boolean b) {
@@ -266,6 +281,12 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
             return;
         }
         switch (compoundButton.getId()) {
+            case R.id.color_base_pic:
+                setCheckText(colorSettings.getBasePicColor());
+                return;
+            case R.id.color_center_text:
+                setCheckText(colorSettings.getTextColor());
+                return;
             case R.id.rb_text_count:
                 ViewHelper.initSeekBar(mSeekBar, Constants.TEXT_COUNT_MIN_VALUE, Constants.TEXT_COUNT_MAX_VALUE);
                 mSeekBar.setProgress(textSettings.getTextCount());

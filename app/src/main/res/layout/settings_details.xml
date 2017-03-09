@@ -3,6 +3,7 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    xmlns:tools="http://schemas.android.com/tools"
     android:orientation="vertical"
     android:padding="@dimen/fab_margin">
 
@@ -25,7 +26,6 @@
             android:id="@+id/color_base_pic"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:checked="true"
             android:text="@string/base_pic"
             android:textColor="@android:color/black"
             app:buttonTint="@color/colorGreen" />
@@ -42,6 +42,7 @@
 
     <!--Color Options-->
     <LinearLayout
+        android:id="@+id/color_options_layout"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:orientation="vertical">
@@ -54,7 +55,7 @@
                 android:id="@+id/color_option_1"
                 style="@style/ColorTextView"
                 android:background="#888888"
-                android:text="✓" />
+                tools:text="✓" />
 
             <TextView
                 android:id="@+id/color_option_2"
