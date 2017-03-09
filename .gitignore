@@ -7,3 +7,6 @@
 /build
 /captures
 .externalNativeBuild
+/gradle/wrapper/gradle-wrapper.properties
+.idea/markdown-navigator.xml
+app/libs/
