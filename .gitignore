@@ -9,3 +9,5 @@
 .externalNativeBuild
 .idea/markdown-navigator.xml
 app/libs/
+*.apk
+*.jks
