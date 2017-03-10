@@ -1,4 +1,4 @@
-package com.example.zhengshang.namepic;
+package cn.zhengshang.namepic;
 
 import android.support.v7.app.AppCompatActivity;
 

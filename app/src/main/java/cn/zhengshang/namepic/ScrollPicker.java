@@ -1,4 +1,4 @@
-package com.example.zhengshang.namepic;
+package cn.zhengshang.namepic;
 
 import android.content.Context;
 import android.graphics.Canvas;

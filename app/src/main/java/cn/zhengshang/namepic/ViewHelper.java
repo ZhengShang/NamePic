@@ -1,4 +1,4 @@
-package com.example.zhengshang.namepic;
+package cn.zhengshang.namepic;
 
 import android.content.ContentResolver;
 import android.content.ContentUris;

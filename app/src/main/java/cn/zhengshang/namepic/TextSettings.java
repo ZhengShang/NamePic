@@ -1,4 +1,4 @@
-package com.example.zhengshang.namepic;
+package cn.zhengshang.namepic;
 
 /**
  * Created by zhengshang on 2017/2/7.
