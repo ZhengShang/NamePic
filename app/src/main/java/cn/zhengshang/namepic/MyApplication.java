@@ -14,5 +14,6 @@ public class MyApplication extends Application {
         super.onCreate();
         MobclickAgent.setScenarioType(this, MobclickAgent.EScenarioType.E_UM_NORMAL);
         MobclickAgent.setCatchUncaughtExceptions(true);
+        MobclickAgent.setDebugMode(true);
     }
 }
