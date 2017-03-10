@@ -1,9 +1,11 @@
-package com.example.zhengshang.namepic;
+package cn.zhengshang.namepic.activity;
 
 import android.content.Intent;
 import android.os.Bundle;
 import android.os.Handler;
 import android.support.annotation.Nullable;
+
+import cn.zhengshang.namepic.R;
 
 /**
  * Created by zhengshang on 2017/2/21.

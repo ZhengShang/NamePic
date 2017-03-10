@@ -1,4 +1,4 @@
-package com.example.zhengshang.namepic;
+package cn.zhengshang.namepic.activity;
 
 import android.content.SharedPreferences;
 import android.graphics.Color;
@@ -28,6 +28,15 @@ import com.oguzdev.circularfloatingactionmenu.library.FloatingActionMenu;
 import org.adw.library.widgets.discreteseekbar.DiscreteSeekBar;
 
 import java.util.Arrays;
+
+import cn.zhengshang.namepic.R;
+import cn.zhengshang.namepic.presenter.ColorSettings;
+import cn.zhengshang.namepic.presenter.TextSettings;
+import cn.zhengshang.namepic.tools.Constants;
+import cn.zhengshang.namepic.tools.ViewHelper;
+import cn.zhengshang.namepic.view.PicView;
+import cn.zhengshang.namepic.view.ScrollPicker;
+
 
 public class MainActivity extends BaseActivity implements View.OnClickListener,
         CompoundButton.OnCheckedChangeListener, DiscreteSeekBar.OnProgressChangeListener,

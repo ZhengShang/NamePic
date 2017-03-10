@@ -1,4 +1,4 @@
-package com.example.zhengshang.namepic;
+package cn.zhengshang.namepic.tools;
 
 import android.content.ContentResolver;
 import android.content.ContentUris;
@@ -32,13 +32,16 @@ import java.io.IOException;
 import java.io.OutputStream;
 import java.util.ArrayList;
 
+import cn.zhengshang.namepic.R;
+import cn.zhengshang.namepic.presenter.TextSettings;
+
 /**
  * Created by zhengshang on 2017/2/10.
  */
 
-class ViewHelper {
-    static final boolean HIDE = true;
-    static final boolean SHOW = false;
+public class ViewHelper {
+    public static final boolean HIDE = true;
+    public static final boolean SHOW = false;
 
     private static ArrayList<Uri> tmpShareUriList = new ArrayList<>();
 
@@ -47,7 +50,7 @@ class ViewHelper {
      *
      * @param hide hide or show
      */
-    static void hideOrShowAllChild(LinearLayout linearLayout, boolean hide) {
+    public static void hideOrShowAllChild(LinearLayout linearLayout, boolean hide) {
         for (int i = 0; i < linearLayout.getChildCount(); i++) {
             View view = linearLayout.getChildAt(i);
             if (view instanceof LinearLayout) {
@@ -65,7 +68,7 @@ class ViewHelper {
     /**
      * 设置中间显示的文字
      */
-    static void changeCenterText(Context context, final TextSettings textSettings, final TextView centerText) {
+    public static void changeCenterText(Context context, final TextSettings textSettings, final TextView centerText) {
         final EditText editText = new EditText(context);
         editText.setFilters(new InputFilter[]{new InputFilter.LengthFilter(1)});
 
@@ -90,7 +93,7 @@ class ViewHelper {
 
     }
 
-    static void initSeekBar(DiscreteSeekBar seekBar, int min, int max) {
+    public static void initSeekBar(DiscreteSeekBar seekBar, int min, int max) {
         seekBar.setMin(min);
         seekBar.setMax(max);
     }
@@ -202,7 +205,7 @@ class ViewHelper {
         }
     }
 
-    static View generateButton(Context context, String text, Drawable background, View.OnClickListener listener) {
+    public static View generateButton(Context context, String text, Drawable background, View.OnClickListener listener) {
         Button button = new Button(context);
         button.setText(text);
         button.setTextColor(Color.WHITE);
@@ -211,7 +214,7 @@ class ViewHelper {
         return button;
     }
 
-    static void saveOrShare(Context context, FrameLayout layout, int type) {
+    public static void saveOrShare(Context context, FrameLayout layout, int type) {
         layout.destroyDrawingCache();
         layout.buildDrawingCache();
         Bitmap bitmap = layout.getDrawingCache();
@@ -236,7 +239,7 @@ class ViewHelper {
     /**
      * 删除点击分享时产生的临时文件
      */
-    static void deleteSharePics(Context context) {
+    public static void deleteSharePics(Context context) {
         ContentResolver contentResolver = context.getContentResolver();
         for (Uri uri : tmpShareUriList) {
             contentResolver.delete(uri, null, null);
@@ -246,7 +249,7 @@ class ViewHelper {
     /**
      * 保存当前选中的radio的索引
      */
-    static void saveGroupConfig(RadioGroup radioGroup, SharedPreferences.Editor editor) {
+    public static void saveGroupConfig(RadioGroup radioGroup, SharedPreferences.Editor editor) {
         switch (radioGroup.getCheckedRadioButtonId()) {
             case R.id.color_base_pic:
                 editor.putInt(Constants.COLOR_SET_GROUP_INDEX, 0);

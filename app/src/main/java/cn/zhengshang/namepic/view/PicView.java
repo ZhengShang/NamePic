@@ -1,4 +1,4 @@
-package com.example.zhengshang.namepic;
+package cn.zhengshang.namepic.view;
 
 import android.content.Context;
 import android.graphics.Canvas;
@@ -6,6 +6,8 @@ import android.graphics.Paint;
 import android.graphics.Typeface;
 import android.util.AttributeSet;
 import android.view.View;
+
+import cn.zhengshang.namepic.tools.Constants;
 
 /**
  * Created by zhengshang on 2016/12/14.

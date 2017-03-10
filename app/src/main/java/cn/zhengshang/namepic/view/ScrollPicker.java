@@ -1,4 +1,4 @@
-package com.example.zhengshang.namepic;
+package cn.zhengshang.namepic.view;
 
 import android.content.Context;
 import android.graphics.Canvas;
@@ -14,6 +14,8 @@ import android.view.VelocityTracker;
 import android.view.View;
 
 import java.util.List;
+
+import cn.zhengshang.namepic.tools.Constants;
 
 import static android.content.Context.MODE_PRIVATE;
 

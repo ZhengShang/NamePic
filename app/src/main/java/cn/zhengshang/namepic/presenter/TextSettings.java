@@ -1,4 +1,6 @@
-package com.example.zhengshang.namepic;
+package cn.zhengshang.namepic.presenter;
+
+import cn.zhengshang.namepic.view.PicView;
 
 /**
  * Created by zhengshang on 2017/2/7.
@@ -7,50 +9,51 @@ package com.example.zhengshang.namepic;
 public class TextSettings {
     private PicView mPicView;
 
-    TextSettings(PicView picView) {
+    public  TextSettings(PicView picView) {
         this.mPicView = picView;
     }
 
-    void setNameText(String text) {
+    public void setNameText(String text) {
         mPicView.setNameText(text);
         mPicView.postInvalidate();
     }
 
-    void setTextCount(int count) {
+    public void setTextCount(int count) {
         mPicView.setNameTextCount(count);
         mPicView.postInvalidate();
     }
 
-    void setTextSize(int size) {
+    public void setTextSize(int size) {
         mPicView.setNameTextSize(size);
         mPicView.postInvalidate();
     }
 
-    void setTextYPosition(int position) {
+    public void setTextYPosition(int position) {
         mPicView.setYPosition(position);
         mPicView.postInvalidate();
     }
 
-    String getNameText() {
+    public String getNameText() {
         return mPicView.getNameText();
     }
 
-    int getTextCount() {
+    public int getTextCount() {
         return mPicView.getNameTextCount();
     }
-    int getTextSize() {
+
+    public int getTextSize() {
         return mPicView.getNameTextSize();
     }
 
-    int getYPosition() {
+    public int getYPosition() {
         return mPicView.getYPosition();
     }
 
-    String getFont() {
+    public String getFont() {
         return mPicView.getmNameFont();
     }
 
-    void setFont(String name) {
+    public void setFont(String name) {
         mPicView.setFont(name);
         mPicView.postInvalidate();
     }

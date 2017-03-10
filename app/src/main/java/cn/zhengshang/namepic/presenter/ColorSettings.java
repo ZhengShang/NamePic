@@ -1,4 +1,6 @@
-package com.example.zhengshang.namepic;
+package cn.zhengshang.namepic.presenter;
+
+import cn.zhengshang.namepic.view.PicView;
 
 /**
  * Created by zhengshang on 2017/2/6.
@@ -7,25 +9,25 @@ package com.example.zhengshang.namepic;
 public class ColorSettings {
     private PicView mPicView;
 
-    ColorSettings(PicView picView) {
+    public  ColorSettings(PicView picView) {
         this.mPicView = picView;
     }
 
-    void setBasePicColor(int color) {
+    public void setBasePicColor(int color) {
         mPicView.setBaseColor(color);
         mPicView.postInvalidate();
     }
 
-    void setCenterTextColor(int color) {
+    public void setCenterTextColor(int color) {
         mPicView.setCenterTextColor(color);
         mPicView.postInvalidate();
     }
 
-    int getBasePicColor() {
+    public int getBasePicColor() {
         return mPicView.getBaseColor();
     }
 
-    int getTextColor() {
+    public int getTextColor() {
         return mPicView.getCenterTextColor();
     }
 }
