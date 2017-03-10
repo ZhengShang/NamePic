@@ -8,7 +8,6 @@ import android.support.design.widget.FloatingActionButton;
 import android.support.design.widget.NavigationView;
 import android.support.v4.view.GravityCompat;
 import android.support.v4.widget.DrawerLayout;
-import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.AppCompatCheckBox;
 import android.support.v7.widget.AppCompatRadioButton;
 import android.view.MotionEvent;
@@ -30,7 +29,7 @@ import org.adw.library.widgets.discreteseekbar.DiscreteSeekBar;
 
 import java.util.Arrays;
 
-public class MainActivity extends AppCompatActivity implements View.OnClickListener,
+public class MainActivity extends BaseActivity implements View.OnClickListener,
         CompoundButton.OnCheckedChangeListener, DiscreteSeekBar.OnProgressChangeListener,
         ScrollPicker.ScrollStopLiserer {
     private ColorSettings colorSettings;

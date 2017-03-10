@@ -1,12 +1,11 @@
 *.iml
 .gradle
-/local.properties
+*.properties
 /.idea/workspace.xml
 /.idea/libraries
 .DS_Store
 /build
 /captures
 .externalNativeBuild
-/gradle/wrapper/gradle-wrapper.properties
 .idea/markdown-navigator.xml
 app/libs/
