@@ -24,4 +24,10 @@
     <string name="save">保存</string>
     <string name="back_pic">背景图片</string>
     <string name="show_back_pick">显示背景图片</string>
+    <string name="font_blackbody">黑体</string>
+    <string name="font_fangsong">仿宋</string>
+    <string name="font_kai_ti">楷体</string>
+    <string name="font_ms_yahei">微软雅黑</string>
+    <string name="font_ms_yahei_bold">微软雅黑加粗</string>
+    <string name="font_song">宋体</string>
 </resources>

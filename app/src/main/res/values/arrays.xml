@@ -1,21 +1,21 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
     <string-array name="fonts_name">
-        <item>仿宋</item>
-        <item>微软雅黑</item>
-        <item>微软雅黑粗体</item>
-        <item>黑体</item>
-        <item>楷体</item>
-        <item>宋体</item>
+        <item>@string/font_fangsong</item>
+        <item>@string/font_ms_yahei</item>
+        <item>@string/font_ms_yahei_bold</item>
+        <item>@string/font_blackbody</item>
+        <item>@string/font_kai_ti</item>
+        <item>@string/font_song</item>
     </string-array>
 
     <string-array name="fonts_file_name">
-        <item>simfang.ttf</item>
-        <item>msyh.ttf</item>
-        <item>msyhbd.ttf</item>
-        <item>simhei.ttf</item>
-        <item>simkai.ttf</item>
-        <item>simsun.ttc</item>
+        <item>@string/font_fangsong_value</item>
+        <item>@string/font_ms_yahei_value</item>
+        <item>@string/font_ms_yehei_bold_value</item>
+        <item>@string/font_black_body_value</item>
+        <item>@string/font_kaiti_value</item>
+        <item>@string/font_songti_value</item>
     </string-array>
 
 </resources>

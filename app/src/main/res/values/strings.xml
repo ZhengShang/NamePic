@@ -23,4 +23,19 @@
     <string name="save">Save</string>
     <string name="back_pic">BackPicture</string>
     <string name="show_back_pick">Show BackPicture</string>
+
+    <string name="font_fangsong">Fang Song</string>
+    <string name="font_ms_yahei">MS YaHei</string>
+    <string name="font_ms_yahei_bold">MS YaHei BOLD</string>
+    <string name="font_blackbody">BLACK BODY</string>
+    <string name="font_kai_ti">Kai ti</string>
+    <string name="font_song">Song Ti</string>
+
+    <string name="font_fangsong_value" translatable="false">simfang.ttf</string>
+    <string name="font_ms_yahei_value" translatable="false">msyh.ttf</string>
+    <string name="font_ms_yehei_bold_value" translatable="false">msyhbd.ttf</string>
+    <string name="font_black_body_value" translatable="false">simhei.ttf</string>
+    <string name="font_kaiti_value" translatable="false">simkai.ttf</string>
+    <string name="font_songti_value" translatable="false">simsun.ttc</string>
+
 </resources>
