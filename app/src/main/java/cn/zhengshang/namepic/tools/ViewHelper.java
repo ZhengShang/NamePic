@@ -231,13 +231,13 @@ public class ViewHelper {
             //content://media/external/images/media/49881
             String path = insertImage(context.getContentResolver(), bitmap, "title", "description");
             if (type == Constants.TYPE_SAVE) {
-                Toast.makeText(context, TextUtils.isEmpty(path) ? "Save failed " : "Saved to gallery ", Toast.LENGTH_SHORT).show();
+                Toast.makeText(context, TextUtils.isEmpty(path) ? R.string.save_failed : R.string.save_success, Toast.LENGTH_SHORT).show();
             } else if (type == Constants.TYPE_SHARE) {
                 Intent shareIntent = new Intent(Intent.ACTION_SEND);
                 shareIntent.setType("image/*");
                 Uri uri = Uri.parse(path);
                 shareIntent.putExtra(Intent.EXTRA_STREAM, uri);
-                context.startActivity(Intent.createChooser(shareIntent, "请选择"));
+                context.startActivity(Intent.createChooser(shareIntent, context.getString(R.string.choose_share_to)));
 
                 tmpShareUriList.add(uri);
             }

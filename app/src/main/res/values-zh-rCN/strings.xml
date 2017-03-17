@@ -30,4 +30,7 @@
     <string name="font_ms_yahei">微软雅黑</string>
     <string name="font_ms_yahei_bold">微软雅黑加粗</string>
     <string name="font_song">宋体</string>
+    <string name="save_failed">保存失败</string>
+    <string name="save_success">已保存到相册</string>
+    <string name="choose_share_to">分享到</string>
 </resources>

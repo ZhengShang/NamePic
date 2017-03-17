@@ -37,5 +37,8 @@
     <string name="font_black_body_value" translatable="false">simhei.ttf</string>
     <string name="font_kaiti_value" translatable="false">simkai.ttf</string>
     <string name="font_songti_value" translatable="false">simsun.ttc</string>
+    <string name="save_failed">Save failed</string>
+    <string name="save_success">Saved to gallery</string>
+    <string name="choose_share_to">Share to</string>
 
 </resources>
