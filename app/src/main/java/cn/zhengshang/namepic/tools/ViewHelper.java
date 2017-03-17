@@ -17,6 +17,7 @@ import android.support.v7.app.AlertDialog;
 import android.text.InputFilter;
 import android.text.TextUtils;
 import android.view.View;
+import android.view.inputmethod.InputMethodManager;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.FrameLayout;
@@ -68,7 +69,7 @@ public class ViewHelper {
     /**
      * 设置中间显示的文字
      */
-    public static void changeCenterText(Context context, final TextSettings textSettings, final TextView centerText) {
+    public static void changeCenterText(final Context context, final TextSettings textSettings, final TextView centerText) {
         final EditText editText = new EditText(context);
         editText.setFilters(new InputFilter[]{new InputFilter.LengthFilter(1)});
 
@@ -91,6 +92,13 @@ public class ViewHelper {
                 })
                 .show();
 
+        editText.post(new Runnable() {
+            @Override
+            public void run() {
+                InputMethodManager inputMethodManager = (InputMethodManager) context.getSystemService(Context.INPUT_METHOD_SERVICE);
+                inputMethodManager.showSoftInput(editText, 0);
+            }
+        });
     }
 
     public static void initSeekBar(DiscreteSeekBar seekBar, int min, int max) {

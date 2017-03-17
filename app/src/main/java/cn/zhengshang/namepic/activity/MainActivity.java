@@ -1,5 +1,6 @@
 package cn.zhengshang.namepic.activity;
 
+import android.content.Context;
 import android.content.SharedPreferences;
 import android.graphics.Color;
 import android.graphics.drawable.ColorDrawable;
@@ -27,6 +28,7 @@ import com.oguzdev.circularfloatingactionmenu.library.FloatingActionMenu;
 
 import org.adw.library.widgets.discreteseekbar.DiscreteSeekBar;
 
+import java.lang.ref.WeakReference;
 import java.util.Arrays;
 
 import cn.zhengshang.namepic.R;
@@ -245,7 +247,8 @@ public class MainActivity extends BaseActivity implements View.OnClickListener,
                 doSetColor(((ColorDrawable) v.getBackground()).getColor());
                 break;
             case R.id.center_text:
-                ViewHelper.changeCenterText(MainActivity.this, textSettings, centerText);
+                WeakReference<Context> weakReference = new WeakReference<Context>(this);
+                ViewHelper.changeCenterText(weakReference.get(), textSettings, centerText);
                 break;
 
         }
