@@ -36,6 +36,7 @@ import cn.zhengshang.namepic.presenter.ColorSettings;
 import cn.zhengshang.namepic.presenter.TextSettings;
 import cn.zhengshang.namepic.tools.Constants;
 import cn.zhengshang.namepic.tools.ViewHelper;
+import cn.zhengshang.namepic.view.DotMenuPopView;
 import cn.zhengshang.namepic.view.PicView;
 import cn.zhengshang.namepic.view.ScrollPicker;
 
@@ -60,6 +61,7 @@ public class MainActivity extends BaseActivity implements View.OnClickListener,
     private FrameLayout contentMain;
     private ImageView backPicture;
     private FloatingActionMenu actionMenu;
+    private DotMenuPopView dotMenuPopView;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -165,6 +167,10 @@ public class MainActivity extends BaseActivity implements View.OnClickListener,
         cbShowBackPic = (AppCompatCheckBox) naviLayout.findViewById(R.id.show_back_pic);
         cbShowBackPic.setOnCheckedChangeListener(this);
 
+        ImageView dotMenu = (ImageView) findViewById(R.id.dot_menu);
+        dotMenu.setOnClickListener(this);
+        dotMenuPopView = new DotMenuPopView(this);
+
         loadViewsStatus();
     }
 
@@ -250,7 +256,9 @@ public class MainActivity extends BaseActivity implements View.OnClickListener,
                 WeakReference<Context> weakReference = new WeakReference<Context>(this);
                 ViewHelper.changeCenterText(weakReference.get(), textSettings, centerText);
                 break;
-
+            case R.id.dot_menu:
+                dotMenuPopView.showAsDropDown(v);
+                break;
         }
 
         drawer.closeDrawer(GravityCompat.START);

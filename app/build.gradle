@@ -53,4 +53,5 @@ dependencies {
     compile 'com.github.QuadFlask:colorpicker:0.0.13'
     compile 'org.adw.library:discrete-seekbar:1.0.1'
     compile 'com.oguzdev:CircularFloatingActionMenu:1.0.2'
+    compile 'com.github.dmytrodanylyk.circular-progress-button:library:1.1.3'
 }

@@ -1,0 +1,55 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:gravity="center_horizontal"
+    android:orientation="vertical">
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_margin="@dimen/def_margin"
+        android:text="@string/feedback_tip" />
+
+    <EditText
+        android:id="@+id/detail_text"
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_marginEnd="@dimen/def_margin"
+        android:layout_marginStart="@dimen/def_margin"
+        android:layout_weight="1"
+        android:background="#eee"
+        android:gravity="start"
+        android:hint="@string/please_input_here" />
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_margin="@dimen/def_margin">
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/contact" />
+
+        <EditText
+            android:id="@+id/contact_text"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:hint="@string/contact_tint"
+            android:maxLines="1" />
+    </LinearLayout>
+
+    <com.dd.CircularProgressButton
+        android:id="@+id/submit"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_margin="@dimen/def_margin"
+        android:layout_marginTop="16dp"
+        android:textColor="@android:color/white"
+        app:cpb_cornerRadius="4dp"
+        app:cpb_textComplete="@string/faeedback_success"
+        app:cpb_textError="@string/feedback_failed"
+        app:cpb_textIdle="@string/submit" />
+</LinearLayout>

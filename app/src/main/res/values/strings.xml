@@ -40,5 +40,18 @@
     <string name="save_failed">Save failed</string>
     <string name="save_success">Saved to gallery</string>
     <string name="choose_share_to">Share to</string>
+    <string name="feedback">Feedback</string>
+    <string name="about_me">About Me</string>
+    <string name="feedback_tip">manman xie</string>
+    <string name="submit">Submit</string>
+    <string name="aboutme_des">About Me description</string>
+    <string name="please_input_here">Please type suggestions here ~</string>
+    <string name="contact">Contact:</string>
+    <string name="contact_tint">choosable</string>
+    <string name="empty_body">Did not type anything yet ..</string>
+    <string name="send_success">Send success</string>
+    <string name="send_failed">Send failed</string>
+    <string name="faeedback_success">Feedback Complete</string>
+    <string name="feedback_failed">Feedback Failed</string>
 
 </resources>

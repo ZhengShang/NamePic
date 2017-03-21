@@ -33,4 +33,17 @@
     <string name="save_failed">保存失败</string>
     <string name="save_success">已保存到相册</string>
     <string name="choose_share_to">分享到</string>
+    <string name="feedback">意见反馈</string>
+    <string name="about_me">关于应用</string>
+    <string name="please_input_here">请在此处填写相关信息~</string>
+    <string name="contact">联系方式:</string>
+    <string name="contact_tint">(选填) QQ/微信/手机号之类的</string>
+    <string name="aboutme_des">\n\n\n还没想好这个页面要写什么 ....</string>
+    <string name="submit">提交</string>
+    <string name="feedback_tip">如果您有任何想法和意见，都可以反馈给我，在以后的版本中可以适当的修改~</string>
+    <string name="empty_body">还没有填入任何文字</string>
+    <string name="send_success">Send success</string>
+    <string name="faeedback_success">反馈成功 ~</string>
+    <string name="send_failed">发送失败</string>
+    <string name="feedback_failed">反馈失败 T.T </string>
 </resources>
