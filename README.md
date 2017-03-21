@@ -6,8 +6,9 @@
  https://www.pgyer.com/41cu
 
  ![Download QR](https://github.com/ZhengShang/NamePic/blob/master/screenshot/QR_code_336.png)
+ 
 
-#运行截图
+# 运行截图
 - 成品截图
 
 ![screenshot_01](https://github.com/ZhengShang/NamePic/blob/master/screenshot/screenshot_01.jpg)
@@ -16,7 +17,7 @@
 
 ![screenshot_02](https://github.com/ZhengShang/NamePic/blob/master/screenshot/screenshot_02.jpg)
 
-#说明
+# 说明
 该应用还未在各app市场上架，正在筹划中...
 
 
