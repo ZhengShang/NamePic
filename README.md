@@ -5,7 +5,7 @@
 
  https://www.pgyer.com/41cu
 
- ![Download QR](https://github.com/ZhengShang/NamePic/blob/master/screenshot/QR_code_336)
+ ![Download QR](https://github.com/ZhengShang/NamePic/blob/master/screenshot/QR_code_336.png)
 
 #运行截图
 - 成品截图
