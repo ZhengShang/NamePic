@@ -224,7 +224,7 @@ public class MainActivity extends BaseActivity implements View.OnClickListener,
         switch (v.getId()) {
             case R.id.color_option_12:
                 ColorPickerDialogBuilder
-                        .with(this)
+                        .with(getApplicationContext())
                         .setTitle(getResources().getString(R.string.choose_color))
                         .initialColor(colorSettings.getBasePicColor())
                         .wheelType(ColorPickerView.WHEEL_TYPE.FLOWER)
