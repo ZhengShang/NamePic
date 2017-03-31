@@ -14,6 +14,8 @@ import android.graphics.drawable.Drawable;
 import android.net.Uri;
 import android.provider.MediaStore;
 import android.support.v7.app.AlertDialog;
+import android.support.v7.app.AppCompatActivity;
+import android.support.v7.widget.Toolbar;
 import android.text.InputFilter;
 import android.text.TextUtils;
 import android.view.View;
@@ -252,6 +254,21 @@ public class ViewHelper {
         for (Uri uri : tmpShareUriList) {
             contentResolver.delete(uri, null, null);
         }
+    }
+
+    /*
+    初始化标题栏
+     */
+    public static void initVIewToolbar(final AppCompatActivity activity, String title) {
+        Toolbar toolbar = (Toolbar) activity.findViewById(R.id.toolbar);
+        toolbar.setNavigationIcon(R.drawable.ic_arrow_back_black_24dp);
+        toolbar.setTitle(R.string.feedback);
+        toolbar.setNavigationOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                activity.finish();
+            }
+        });
     }
 
     /**

@@ -11,6 +11,7 @@ import com.dd.CircularProgressButton;
 
 import cn.zhengshang.namepic.R;
 import cn.zhengshang.namepic.tools.MailManager;
+import cn.zhengshang.namepic.tools.ViewHelper;
 
 /**
  * Created by zhengshang on 2017/3/20.
@@ -25,6 +26,7 @@ public class FeedbackActivity extends BaseActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.feedback);
 
+        ViewHelper.initVIewToolbar(this, getString(R.string.feedback));
         mDetailText = (EditText) findViewById(R.id.detail_text);
         mContactText = (EditText) findViewById(R.id.contact_text);
         mSubmit = (CircularProgressButton) findViewById(R.id.submit);
