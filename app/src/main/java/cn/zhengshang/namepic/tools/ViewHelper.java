@@ -262,7 +262,7 @@ public class ViewHelper {
     public static void initVIewToolbar(final AppCompatActivity activity, String title) {
         Toolbar toolbar = (Toolbar) activity.findViewById(R.id.toolbar);
         toolbar.setNavigationIcon(R.drawable.ic_arrow_back_black_24dp);
-        toolbar.setTitle(R.string.feedback);
+        toolbar.setTitle(title);
         toolbar.setNavigationOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
