@@ -6,5 +6,6 @@
 /build
 /captures
 .externalNativeBuild
+.idea/markdown-navigator.xml
 *.apk
 *.jks
