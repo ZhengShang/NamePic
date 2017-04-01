@@ -77,16 +77,26 @@ public class MainActivity extends BaseActivity implements View.OnClickListener,
                         getResources().getString(R.string.share), getResources().getDrawable(R.drawable.oval_blue), new View.OnClickListener() {
                             @Override
                             public void onClick(View view) {
-                                ViewHelper.saveOrShare(MainActivity.this, contentMain, Constants.TYPE_SHARE);
                                 fab.callOnClick();
+                                view.postDelayed(new Runnable() {
+                                    @Override
+                                    public void run() {
+                                        ViewHelper.saveOrShare(MainActivity.this, contentMain, Constants.TYPE_SHARE);
+                                    }
+                                }, 400);
                             }
                         }), 150, 150)
                 .addSubActionView(ViewHelper.generateButton(MainActivity.this,
                         getResources().getString(R.string.save), getResources().getDrawable(R.drawable.oval_orange), new View.OnClickListener() {
                             @Override
                             public void onClick(View view) {
-                                ViewHelper.saveOrShare(MainActivity.this, contentMain, Constants.TYPE_SAVE);
                                 fab.callOnClick();
+                                view.postDelayed(new Runnable() {
+                                    @Override
+                                    public void run() {
+                                        ViewHelper.saveOrShare(MainActivity.this, contentMain, Constants.TYPE_SAVE);
+                                    }
+                                }, 400);
                             }
                         }), 150, 150)
                 .attachTo(fab)
