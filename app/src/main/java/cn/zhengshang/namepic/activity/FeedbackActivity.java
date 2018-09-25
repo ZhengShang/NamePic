@@ -7,7 +7,7 @@ import android.view.View;
 import android.widget.EditText;
 import android.widget.Toast;
 
-import com.dd.CircularProgressButton;
+import com.dd.processbutton.iml.ActionProcessButton;
 
 import cn.zhengshang.namepic.R;
 import cn.zhengshang.namepic.tools.MailManager;
@@ -19,7 +19,7 @@ import cn.zhengshang.namepic.tools.ViewHelper;
 
 public class FeedbackActivity extends BaseActivity {
     private EditText mDetailText, mContactText;
-    private CircularProgressButton mSubmit;
+    private ActionProcessButton mSubmit;
 
     @Override
     protected void onCreate(@Nullable Bundle savedInstanceState) {
@@ -27,10 +27,11 @@ public class FeedbackActivity extends BaseActivity {
         setContentView(R.layout.feedback);
 
         ViewHelper.initVIewToolbar(this, getString(R.string.feedback));
-        mDetailText = (EditText) findViewById(R.id.detail_text);
-        mContactText = (EditText) findViewById(R.id.contact_text);
-        mSubmit = (CircularProgressButton) findViewById(R.id.submit);
-        mSubmit.setIndeterminateProgressMode(true);
+        mDetailText = findViewById(R.id.detail_text);
+        mContactText = findViewById(R.id.contact_text);
+        mSubmit =  findViewById(R.id.submit);
+        mSubmit.setCompleteText(getString(R.string.faeedback_success));
+        mSubmit.setErrorText(getString(R.string.feedback_failed));
         mSubmit.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {

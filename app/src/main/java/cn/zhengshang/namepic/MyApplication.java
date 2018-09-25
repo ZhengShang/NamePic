@@ -12,8 +12,8 @@ public class MyApplication extends Application {
     @Override
     public void onCreate() {
         super.onCreate();
-        MobclickAgent.setScenarioType(this, MobclickAgent.EScenarioType.E_UM_NORMAL);
-        MobclickAgent.setCatchUncaughtExceptions(true);
-        MobclickAgent.setDebugMode(true);
+//        MobclickAgent.setScenarioType(this, MobclickAgent.EScenarioType.E_UM_NORMAL);
+//        MobclickAgent.setCatchUncaughtExceptions(true);
+//        MobclickAgent.setDebugMode(true);
     }
 }

@@ -3,6 +3,7 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    xmlns:custom="http://schemas.android.com/tools"
     android:gravity="center_horizontal"
     android:orientation="vertical">
 
@@ -48,15 +49,19 @@
             android:maxLines="1" />
     </LinearLayout>
 
-    <com.dd.CircularProgressButton
+    <com.dd.processbutton.iml.ActionProcessButton
         android:id="@+id/submit"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_margin="@dimen/def_margin"
-        android:layout_marginTop="16dp"
+        android:text="@string/submit"
         android:textColor="@android:color/white"
-        app:cpb_cornerRadius="4dp"
-        app:cpb_textComplete="@string/faeedback_success"
-        app:cpb_textError="@string/feedback_failed"
-        app:cpb_textIdle="@string/submit" />
+        android:textSize="18sp"
+        app:pb_cornerRadius="4dp"
+        custom:pb_colorComplete="#00cc66"
+        custom:pb_colorNormal="@color/blue_normal"
+        custom:pb_colorPressed="@color/blue_pressed"
+        custom:pb_colorProgress="@color/purple_progress"
+        custom:pb_textProgress="Loading"
+        custom:pb_colorError="@color/red_error" />
 </LinearLayout>

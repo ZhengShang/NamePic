@@ -42,7 +42,7 @@
     <string name="submit">提交</string>
     <string name="feedback_tip">如果您有任何想法和意见，都可以反馈给我，在以后的版本中可以适当的修改~</string>
     <string name="empty_body">还没有填入任何文字</string>
-    <string name="send_success">Send success</string>
+    <string name="send_success">发送成功</string>
     <string name="faeedback_success">反馈成功 ~</string>
     <string name="send_failed">发送失败</string>
     <string name="feedback_failed">反馈失败 T.T </string>
