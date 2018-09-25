@@ -15,7 +15,7 @@
         android:layout_alignParentEnd="true"
         android:layout_alignParentRight="true"
         android:layout_margin="@dimen/def_margin"
-        android:src="@drawable/ic_more_vert_black_24dp" />
+        android:src="@drawable/ic_more_horiz_white_24dp" />
 
     <android.support.design.widget.FloatingActionButton
         android:id="@+id/fab"
