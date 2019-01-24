@@ -399,7 +399,8 @@ public class MainActivity extends BaseActivity implements View.OnClickListener,
 
     @Override
     protected void onDestroy() {
-        ViewHelper.deleteSharePics(MainActivity.this);
+        WeakReference weakReference = new WeakReference<>(this);
+        ViewHelper.deleteSharePics((Context) weakReference.get());
         super.onDestroy();
     }
 }
