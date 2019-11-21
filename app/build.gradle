@@ -1,4 +1,6 @@
 apply plugin: 'com.android.application'
+apply plugin: 'kotlin-android'
+apply plugin: 'kotlin-android-extensions'
 
 android {
     compileSdkVersion 29
@@ -52,8 +54,13 @@ dependencies {
 
     implementation 'com.umeng.analytics:analytics:6.1.4'  //umeng
 
-    implementation 'com.github.QuadFlask:colorpicker:0.0.13'
+    implementation 'com.github.QuadFlask:colorpicker:0.0.15'
     implementation 'org.adw.library:discrete-seekbar:1.0.1'
     implementation 'com.oguzdev:CircularFloatingActionMenu:1.0.2'
     implementation 'com.github.dmytrodanylyk.android-process-button:library:1.0.4'
+    implementation "androidx.core:core-ktx:1.1.0"
+    implementation "org.jetbrains.kotlin:kotlin-stdlib-jdk8:$kotlin_version"
+}
+repositories {
+    mavenCentral()
 }
