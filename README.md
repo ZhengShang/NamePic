@@ -1,7 +1,7 @@
 # NamePic
 一个使用单个文字生成壁纸图片的app。灵感来自某网站上有人用ps做出的百家姓图片，用程序生成不仅快速，而且可以完全自定义，省去了催作者更新自己姓氏的烦恼.
 
-本地编译版本[点此下载](https://github.com/ZhengShang/NamePic/blob/master/screenshot/app-release.apk?raw=true)
+Apk版本[点此下载](https://github.com/ZhengShang/NamePic/blob/master/screenshot/app-release.apk?raw=true)
 
 
 # 运行截图
