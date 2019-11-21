@@ -1,7 +1,8 @@
 package cn.zhengshang.namepic.activity;
 
 import android.os.Bundle;
-import android.support.annotation.Nullable;
+
+import androidx.annotation.Nullable;
 
 import cn.zhengshang.namepic.R;
 import cn.zhengshang.namepic.tools.ViewHelper;
