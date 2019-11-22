@@ -17,6 +17,7 @@ import android.view.inputmethod.InputMethodManager
 import android.widget.*
 import androidx.appcompat.app.AlertDialog.Builder
 import androidx.appcompat.app.AppCompatActivity
+import androidx.appcompat.widget.Toolbar
 import cn.zhengshang.namepic.R
 import cn.zhengshang.namepic.presenter.TextSettings
 import org.adw.library.widgets.discreteseekbar.DiscreteSeekBar
