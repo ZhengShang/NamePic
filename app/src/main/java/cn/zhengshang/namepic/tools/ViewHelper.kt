@@ -186,6 +186,9 @@ object ViewHelper {
         val bitmap = layout.drawingCache
         if (bitmap != null) { //content://media/external/images/media/49881
             val path = insertImage(context.contentResolver, bitmap, "title", "description")
+            if (path.isNullOrEmpty()) {
+                return
+            }
             if (type == Constants.TYPE_SAVE) {
                 Toast.makeText(context, if (TextUtils.isEmpty(path)) R.string.save_failed else R.string.save_success, Toast.LENGTH_SHORT).show()
             } else if (type == Constants.TYPE_SHARE) {
