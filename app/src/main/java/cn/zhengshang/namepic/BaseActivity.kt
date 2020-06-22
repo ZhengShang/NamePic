@@ -1,4 +1,4 @@
-package cn.zhengshang.namepic.activity
+package cn.zhengshang.namepic
 
 import androidx.appcompat.app.AppCompatActivity
 import com.umeng.analytics.MobclickAgent

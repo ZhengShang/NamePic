@@ -5,6 +5,7 @@ import android.text.TextUtils
 import android.view.View.OnClickListener
 import android.widget.EditText
 import android.widget.Toast
+import cn.zhengshang.namepic.BaseActivity
 import cn.zhengshang.namepic.R
 import cn.zhengshang.namepic.tools.MailManager
 import cn.zhengshang.namepic.tools.MailManager.Companion

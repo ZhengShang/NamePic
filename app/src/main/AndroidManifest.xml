@@ -25,16 +25,12 @@
             <!--android:name="UMENG_CHANNEL"-->
             <!--android:value="${UMENG_CHANNEL_VALUE}" />-->
 
-        <activity
-            android:name=".activity.SplashActivity"
-            android:theme="@style/SplashTheme">
+        <activity android:name=".MainActivity" >
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-
-        <activity android:name=".activity.MainActivity" />
         <activity
             android:name=".activity.FeedbackActivity"
             android:theme="@style/Theme.AppCompat.Light.NoActionBar" />
