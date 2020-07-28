@@ -12,7 +12,9 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:background="@drawable/toolbar_bg"
-        android:fitsSystemWindows="true" />
+        android:fitsSystemWindows="true"
+        app:navigationIcon="@drawable/ic_arrow_back_black_24dp"
+        app:title="@string/feedback" />
 
     <TextView
         android:layout_width="wrap_content"

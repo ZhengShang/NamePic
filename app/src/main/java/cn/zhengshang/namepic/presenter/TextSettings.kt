@@ -37,7 +37,7 @@ class TextSettings(private val mPicView: PicView) {
         get() = mPicView.yPosition
 
     var font: String?
-        get() = mPicView.getmNameFont()
+        get() = mPicView.getNameFont()
         set(name) {
             mPicView.setFont(name!!)
             mPicView.postInvalidate()

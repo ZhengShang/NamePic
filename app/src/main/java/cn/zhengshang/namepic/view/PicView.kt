@@ -75,7 +75,7 @@ class PicView : View {
         mNameTextPaint.typeface = typeface
     }
 
-    fun getmNameFont(): String {
+    fun getNameFont(): String {
         return mNameFont
     }
 }
