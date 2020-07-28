@@ -18,7 +18,7 @@ class MainFragment : BaseFragment() {
                               container: ViewGroup?,
                               savedInstanceState: Bundle?
     ): View {
-        return inflater.inflate(R.layout.activity_main, container, false)
+        return inflater.inflate(R.layout.frag_main, container, false)
     }
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
