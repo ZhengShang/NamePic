@@ -5,8 +5,10 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import androidx.activity.OnBackPressedCallback
+import androidx.databinding.DataBindingUtil
 import cn.zhengshang.namepic.BaseFragment
 import cn.zhengshang.namepic.R
+import cn.zhengshang.namepic.databinding.FragMainBinding
 
 
 /**
@@ -18,7 +20,8 @@ class MainFragment : BaseFragment() {
                               container: ViewGroup?,
                               savedInstanceState: Bundle?
     ): View {
-        return inflater.inflate(R.layout.frag_main, container, false)
+        val inflate = DataBindingUtil.inflate<FragMainBinding>(inflater, R.layout.frag_main, container, false)
+        return inflate.root
     }
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
