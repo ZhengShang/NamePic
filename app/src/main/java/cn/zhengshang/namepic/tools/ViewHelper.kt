@@ -189,9 +189,9 @@ object ViewHelper {
             if (path.isNullOrEmpty()) {
                 return
             }
-            if (type == Constants.TYPE_SAVE) {
+            if (type == TYPE_SAVE) {
                 Toast.makeText(context, if (TextUtils.isEmpty(path)) R.string.save_failed else R.string.save_success, Toast.LENGTH_SHORT).show()
-            } else if (type == Constants.TYPE_SHARE) {
+            } else if (type == TYPE_SHARE) {
                 val shareIntent = Intent(Intent.ACTION_SEND)
                 shareIntent.type = "image/*"
                 val uri = Uri.parse(path)
@@ -227,11 +227,11 @@ object ViewHelper {
      */
     fun saveGroupConfig(radioGroup: RadioGroup, editor: Editor) {
         when (radioGroup.checkedRadioButtonId) {
-            R.id.color_base_pic -> editor.putInt(Constants.COLOR_SET_GROUP_INDEX, 0)
-            R.id.color_center_text -> editor.putInt(Constants.COLOR_SET_GROUP_INDEX, 1)
-            R.id.rb_text_count -> editor.putInt(Constants.TEXT_SET_GROUP_INDEX, 0)
-            R.id.rb_text_size -> editor.putInt(Constants.TEXT_SET_GROUP_INDEX, 1)
-            R.id.rb_y_position -> editor.putInt(Constants.TEXT_SET_Y_POSITION, 2)
+            R.id.color_base_pic -> editor.putInt(COLOR_SET_GROUP_INDEX, 0)
+            R.id.color_center_text -> editor.putInt(COLOR_SET_GROUP_INDEX, 1)
+            R.id.rb_text_count -> editor.putInt(TEXT_SET_GROUP_INDEX, 0)
+            R.id.rb_text_size -> editor.putInt(TEXT_SET_GROUP_INDEX, 1)
+            R.id.rb_y_position -> editor.putInt(TEXT_SET_Y_POSITION, 2)
         }
     }
 }

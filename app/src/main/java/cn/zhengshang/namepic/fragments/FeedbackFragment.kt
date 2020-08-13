@@ -6,11 +6,11 @@ import android.view.View
 import android.view.ViewGroup
 import android.widget.EditText
 import android.widget.Toast
-import android.widget.Toolbar
-import androidx.navigation.fragment.findNavController
+import androidx.appcompat.widget.Toolbar
 import cn.zhengshang.namepic.BaseFragment
 import cn.zhengshang.namepic.R
 import cn.zhengshang.namepic.tools.MailManager
+import cn.zhengshang.namepic.tools.navClickBack
 import com.dd.processbutton.iml.ActionProcessButton
 
 /**
@@ -27,9 +27,7 @@ class FeedbackFragment : BaseFragment() {
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
-        view.findViewById<Toolbar>(R.id.toolbar).setNavigationOnClickListener {
-            findNavController().popBackStack()
-        }
+        view.findViewById<Toolbar>(R.id.toolbar).navClickBack()
 
         val detailText = view.findViewById<EditText>(R.id.detail_text)
         val contactText = view.findViewById<EditText>(R.id.contact_text)

@@ -6,7 +6,7 @@ import android.graphics.Paint
 import android.graphics.Typeface
 import android.util.AttributeSet
 import android.view.View
-import cn.zhengshang.namepic.tools.Constants
+import cn.zhengshang.namepic.tools.*
 
 /**
  * Created by zhengshang on 2016/12/14.
@@ -14,16 +14,16 @@ import cn.zhengshang.namepic.tools.Constants
 class PicView : View {
     private val mBgPaint = Paint()
     private val mNameTextPaint = Paint()
-    var nameTextSize = Constants.TEXT_SIZE_DEF_VALUE
-    var nameTextCount = Constants.TEXT_COUNT_DEF_VALUE
+    var nameTextSize = TEXT_SIZE_DEF_VALUE
+    var nameTextCount = TEXT_COUNT_DEF_VALUE
     private var mAvgAngle = 0f
-    var nameText = Constants.DEF_TEXT
-    private val mNameFont = Constants.DEF_TEXT_FONT
-    var baseColor = Constants.DEF_BASE_COLOR
-    var centerTextColor = Constants.DEF_TEXT_COLOR
+    var nameText = DEF_TEXT
+    private val mNameFont = DEF_TEXT_FONT
+    var baseColor = DEF_BASE_COLOR
+    var centerTextColor = DEF_TEXT_COLOR
     private var mNameTextYPosition = 0
-    var yPosition = Constants.DEF_Y_POSITION
-    private val mTextRadius = Constants.DEF_TEXT_RADIUS
+    var yPosition = DEF_Y_POSITION
+    private val mTextRadius = DEF_TEXT_RADIUS
 
     constructor(context: Context?) : super(context) {
         initPaints()

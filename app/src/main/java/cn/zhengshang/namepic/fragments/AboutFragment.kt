@@ -4,10 +4,10 @@ import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import android.widget.Toolbar
-import androidx.navigation.fragment.findNavController
+import androidx.appcompat.widget.Toolbar
 import cn.zhengshang.namepic.BaseFragment
 import cn.zhengshang.namepic.R
+import cn.zhengshang.namepic.tools.navClickBack
 
 /**
  * Created by shangzheng on 2020/7/28.
@@ -23,8 +23,6 @@ class AboutFragment : BaseFragment() {
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
-        view.findViewById<Toolbar>(R.id.toolbar).setNavigationOnClickListener {
-            findNavController().popBackStack()
-        }
+        view.findViewById<Toolbar>(R.id.toolbar).navClickBack()
     }
 }

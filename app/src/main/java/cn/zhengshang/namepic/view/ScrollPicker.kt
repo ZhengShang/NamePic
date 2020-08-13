@@ -13,7 +13,8 @@ import android.view.MotionEvent
 import android.view.VelocityTracker
 import android.view.View
 import androidx.core.widget.ScrollerCompat
-import cn.zhengshang.namepic.tools.Constants
+import cn.zhengshang.namepic.tools.SHARED_PREFS_NAME
+import cn.zhengshang.namepic.tools.TEXT_SET_FONT
 
 class ScrollPicker : View {
     private var mScroller: ScrollerCompat? = null
@@ -29,7 +30,7 @@ class ScrollPicker : View {
     private val mDefaultScrollByMills = 300
     private val mDefaultScrollByMillsMax = 1500
     private val mDefaultScrollByMillsMin = 300
-    private var datas: List<String>? = null
+    private var datas: List<String> = emptyList()
     private var mViewWidth = 0
     private var mViewHeight = 0
     private var mViewCenterX = 0f
@@ -64,7 +65,7 @@ class ScrollPicker : View {
         mPaintText.isAntiAlias = true
         mPaintText.textSize = mPaintTextSize
         mPaintText.textAlign = Paint.Align.CENTER
-        mDefaultPickedIndex = context.getSharedPreferences(Constants.SHARED_PREFS_NAME, Context.MODE_PRIVATE).getInt(Constants.TEXT_SET_FONT, 0)
+        mDefaultPickedIndex = context.getSharedPreferences(SHARED_PREFS_NAME, Context.MODE_PRIVATE).getInt(TEXT_SET_FONT, 0)
         initHandler()
     }
 
@@ -99,29 +100,33 @@ class ScrollPicker : View {
         for (i in 0 until mShowCount + 1) {
             var index = mCurrDrawFirstItemIndex + i
             val y = mCurrDrawFirstItemY + i * mItemHeight + mItemHeight / 2 + mHalfTextHeight
-            if (i == mShowCount / 2) {
-                fraction = (mItemHeight + mCurrDrawFirstItemY).toFloat() / mItemHeight
-                textColor = evaluate(fraction, mStartValueColor, mEndValueColor)
-                textSize = getEvaluateSize(fraction, mPaintTextSize, mPaintTextSize + 30f)
-            } else if (i == mShowCount / 2 + 1) {
-                textColor = evaluate(1 - fraction, mStartValueColor, mEndValueColor)
-                textSize = getEvaluateSize(1 - fraction, mPaintTextSize, mPaintTextSize + 30f)
-            } else {
-                textColor = mStartValueColor
-                textSize = mPaintTextSize
+            when (i) {
+                mShowCount / 2 -> {
+                    fraction = (mItemHeight + mCurrDrawFirstItemY).toFloat() / mItemHeight
+                    textColor = evaluate(fraction, mStartValueColor, mEndValueColor)
+                    textSize = getEvaluateSize(fraction, mPaintTextSize, mPaintTextSize + 30f)
+                }
+                mShowCount / 2 + 1 -> {
+                    textColor = evaluate(1 - fraction, mStartValueColor, mEndValueColor)
+                    textSize = getEvaluateSize(1 - fraction, mPaintTextSize, mPaintTextSize + 30f)
+                }
+                else -> {
+                    textColor = mStartValueColor
+                    textSize = mPaintTextSize
+                }
             }
             mPaintText!!.color = textColor
             mPaintText.textSize = textSize
             if (!mCanWrap) { //不循环滚动
-                if (0 <= index && index < datas!!.size) {
-                    canvas.drawText(datas!![index], mViewCenterX, y, mPaintText)
+                if (0 <= index && index < datas.size) {
+                    canvas.drawText(datas[index], mViewCenterX, y, mPaintText)
                 }
             } else { //循环滚动
-                index = index % datas!!.size
+                index %= datas.size
                 if (index < 0) {
-                    index += datas!!.size
+                    index += datas.size
                 }
-                canvas.drawText(datas!![index], mViewCenterX, y, mPaintText)
+                canvas.drawText(datas[index], mViewCenterX, y, mPaintText)
             }
         }
     }
@@ -224,8 +229,8 @@ class ScrollPicker : View {
         if (!mCanWrap) { //不能滚动,限制滑动范围
             if (newGlobalY < -mItemHeight * (mShowCount / 2)) {
                 newGlobalY = -mItemHeight * (mShowCount / 2)
-            } else if (newGlobalY > mItemHeight * (datas!!.size - mShowCount / 2 - 1)) {
-                newGlobalY = mItemHeight * (datas!!.size - mShowCount / 2 - 1)
+            } else if (newGlobalY > mItemHeight * (datas.size - mShowCount / 2 - 1)) {
+                newGlobalY = mItemHeight * (datas.size - mShowCount / 2 - 1)
             }
         }
         return newGlobalY
@@ -278,8 +283,8 @@ class ScrollPicker : View {
         if (!mCanWrap) {
             if (deltaIndex < -dataPickedIndex) {
                 deltaIndex = -dataPickedIndex
-            } else if (deltaIndex > datas!!.size - 1 - dataPickedIndex) {
-                deltaIndex = datas!!.size - 1 - dataPickedIndex
+            } else if (deltaIndex > datas.size - 1 - dataPickedIndex) {
+                deltaIndex = datas.size - 1 - dataPickedIndex
             }
         }
         var dy = 0
@@ -301,7 +306,7 @@ class ScrollPicker : View {
                 -duration + deltaIndex * mDefaultScrollByMills
             }
         }
-        dy = dy + deltaIndex * mItemHeight
+        dy += deltaIndex * mItemHeight
         if (duration > mDefaultScrollByMillsMax) {
             duration = mDefaultScrollByMillsMax
         } else if (duration < mDefaultScrollByMillsMin) {
@@ -367,7 +372,7 @@ class ScrollPicker : View {
         mCanWrap = wrap
     }
 
-    fun setDatas(datas: List<String>?) {
+    fun setDatas(datas: List<String>) {
         this.datas = datas
     }
 
@@ -375,7 +380,7 @@ class ScrollPicker : View {
         get() {
             val result: String?
             result = try {
-                datas!![dataPickedIndex]
+                datas[dataPickedIndex]
             } catch (e: Exception) {
                 null
             }

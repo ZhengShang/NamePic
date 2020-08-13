@@ -9,18 +9,16 @@ import android.widget.LinearLayout
 import android.widget.PopupWindow
 import android.widget.TextView
 import cn.zhengshang.namepic.R
-import cn.zhengshang.namepic.activity.AboutMe
-import cn.zhengshang.namepic.activity.FeedbackActivity
 
 /**
  * Created by zhengshang on 2017/3/20.
  */
 class DotMenuPopView(private val mContext: Context) : PopupWindow(), OnClickListener {
     override fun onClick(v: View) {
-        when (v.id) {
-            R.id.feedback -> mContext.startActivity(Intent(mContext, FeedbackActivity::class.java))
-            R.id.about_me -> mContext.startActivity(Intent(mContext, AboutMe::class.java))
-        }
+//        when (v.id) {
+//            R.id.feedback -> mContext.startActivity(Intent(mContext, FeedbackActivity::class.java))
+//            R.id.about_me -> mContext.startActivity(Intent(mContext, AboutMe::class.java))
+//        }
         dismiss()
     }
 
