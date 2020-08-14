@@ -1,5 +1,6 @@
 package cn.zhengshang.namepic.fragments
 
+import android.content.Intent
 import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
@@ -10,6 +11,9 @@ import androidx.navigation.fragment.findNavController
 import cn.zhengshang.namepic.BaseFragment
 import cn.zhengshang.namepic.R
 import cn.zhengshang.namepic.databinding.FragMainBinding
+import cn.zhengshang.namepic.tools.getUri
+import cn.zhengshang.namepic.tools.toBitmap
+import kotlinx.android.synthetic.main.app_bar_main.*
 import kotlinx.android.synthetic.main.app_bar_main.view.*
 
 
@@ -58,6 +62,12 @@ class MainFragment : BaseFragment() {
     }
 
     private fun shareImage() {
-        // TODO: 2020/8/13 share
+        val shareIntent: Intent = Intent().apply {
+            action = Intent.ACTION_SEND
+            putExtra(Intent.EXTRA_STREAM,
+            pic_view.toBitmap().getUri(context))
+            type = "image/jpeg"
+        }
+        startActivity(Intent.createChooser(shareIntent, resources.getText(R.string.share)))
     }
 }
