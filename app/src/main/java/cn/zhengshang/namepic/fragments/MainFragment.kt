@@ -47,6 +47,8 @@ class MainFragment : BaseFragment() {
             }
         }
 
+        binding.drawerLayout.toolbar.setNavigationOnClickListener { binding.drawerLayout.open() }
+
         setHasOptionsMenu(true)
         return binding.root
     }
