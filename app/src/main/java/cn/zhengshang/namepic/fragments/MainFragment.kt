@@ -13,8 +13,10 @@ import cn.zhengshang.namepic.R
 import cn.zhengshang.namepic.databinding.FragMainBinding
 import cn.zhengshang.namepic.tools.getUri
 import cn.zhengshang.namepic.tools.toBitmap
+import com.google.android.material.snackbar.BaseTransientBottomBar
+import com.google.android.material.snackbar.Snackbar
 import kotlinx.android.synthetic.main.app_bar_main.*
-import kotlinx.android.synthetic.main.app_bar_main.view.*
+import kotlinx.android.synthetic.main.frag_main.*
 
 
 /**
@@ -29,7 +31,25 @@ class MainFragment : BaseFragment() {
         val binding = DataBindingUtil.inflate<FragMainBinding>(inflater,
                 R.layout.frag_main, container, false
         )
-        binding.drawerLayout.toolbar.setOnMenuItemClickListener { item ->
+
+        setHasOptionsMenu(true)
+        return binding.root
+    }
+
+    override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
+
+        val callback: OnBackPressedCallback = object : OnBackPressedCallback(true) {
+            override fun handleOnBackPressed() {
+                requireActivity().finish()
+            }
+        }
+        requireActivity().onBackPressedDispatcher.addCallback(viewLifecycleOwner, callback)
+
+        initClicks()
+    }
+
+    private fun initClicks() {
+        toolbar.setOnMenuItemClickListener { item ->
             when (item.itemId) {
                 R.id.share -> {
                     shareImage()
@@ -47,20 +67,12 @@ class MainFragment : BaseFragment() {
             }
         }
 
-        binding.drawerLayout.toolbar.setNavigationOnClickListener { binding.drawerLayout.open() }
+        toolbar.setNavigationOnClickListener { drawer_layout.open() }
 
-        setHasOptionsMenu(true)
-        return binding.root
-    }
-
-    override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
-
-        val callback: OnBackPressedCallback = object : OnBackPressedCallback(true) {
-            override fun handleOnBackPressed() {
-                requireActivity().finish()
-            }
+        fab.setOnClickListener {
+            pic_view.toBitmap().getUri(context)
+            Snackbar.make(fab, R.string.save_success, BaseTransientBottomBar.LENGTH_SHORT).show()
         }
-        requireActivity().onBackPressedDispatcher.addCallback(viewLifecycleOwner, callback)
     }
 
     private fun shareImage() {
