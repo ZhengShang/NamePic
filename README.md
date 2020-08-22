@@ -14,7 +14,4 @@ Apk版本[点此下载](https://github.com/ZhengShang/NamePic/blob/master/screen
 ![screenshot_02](https://github.com/ZhengShang/NamePic/blob/master/screenshot/screenshot_02.jpg)
 
 # 说明
-该应用还未在各app市场上架，正在筹划中...
-
-
-妈个鸡，各个市场都要手持身份证拍照上传，不上架了<(－︿－)>
+该应用还未在各app市场上架，有缘再说把
