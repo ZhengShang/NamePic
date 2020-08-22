@@ -1,69 +1,76 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
-    android:layout_width="match_parent"
-    android:layout_height="match_parent"
-    xmlns:custom="http://schemas.android.com/tools"
-    android:gravity="center_horizontal"
-    android:orientation="vertical">
+    xmlns:custom="http://schemas.android.com/tools">
 
-    <androidx.appcompat.widget.Toolbar
-        android:id="@+id/toolbar"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:background="@drawable/toolbar_bg"
-        android:fitsSystemWindows="true"
-        app:navigationIcon="@drawable/ic_arrow_back_black_24dp"
-        app:title="@string/feedback" />
+    <data>
 
-    <TextView
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_margin="@dimen/def_margin"
-        android:text="@string/feedback_tip" />
-
-    <EditText
-        android:id="@+id/detail_text"
-        android:layout_width="match_parent"
-        android:layout_height="0dp"
-        android:layout_marginEnd="@dimen/def_margin"
-        android:layout_marginStart="@dimen/def_margin"
-        android:layout_weight="1"
-        android:background="#eee"
-        android:gravity="start"
-        android:hint="@string/please_input_here" />
+    </data>
 
     <LinearLayout
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_margin="@dimen/def_margin">
+        android:layout_height="match_parent"
+        android:gravity="center_horizontal"
+        android:orientation="vertical">
+
+        <androidx.appcompat.widget.Toolbar
+            android:id="@+id/toolbar"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:background="@drawable/toolbar_bg"
+            android:fitsSystemWindows="true"
+            app:navigationIcon="@drawable/ic_arrow_back_black_24dp"
+            app:title="@string/feedback" />
 
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="@string/contact" />
+            android:layout_margin="@dimen/def_margin"
+            android:text="@string/feedback_tip" />
 
         <EditText
-            android:id="@+id/contact_text"
+            android:id="@+id/detail_text"
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            android:layout_marginEnd="@dimen/def_margin"
+            android:layout_marginStart="@dimen/def_margin"
+            android:layout_weight="1"
+            android:background="#eee"
+            android:gravity="start"
+            android:hint="@string/please_input_here" />
+
+        <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:hint="@string/contact_tint"
-            android:maxLines="1" />
-    </LinearLayout>
+            android:layout_margin="@dimen/def_margin">
 
-    <com.dd.processbutton.iml.ActionProcessButton
-        android:id="@+id/submit"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_margin="@dimen/def_margin"
-        android:text="@string/submit"
-        android:textColor="@android:color/white"
-        android:textSize="18sp"
-        app:pb_cornerRadius="4dp"
-        custom:pb_colorComplete="#00cc66"
-        custom:pb_colorNormal="@color/blue_normal"
-        custom:pb_colorPressed="@color/blue_pressed"
-        custom:pb_colorProgress="@color/purple_progress"
-        custom:pb_textProgress="Loading"
-        custom:pb_colorError="@color/red_error" />
-</LinearLayout>
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/contact" />
+
+            <EditText
+                android:id="@+id/contact_text"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:hint="@string/contact_tint"
+                android:maxLines="1" />
+        </LinearLayout>
+
+        <com.dd.processbutton.iml.ActionProcessButton
+            android:id="@+id/submit"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_margin="@dimen/def_margin"
+            android:text="@string/submit"
+            android:textColor="@android:color/white"
+            android:textSize="18sp"
+            app:pb_cornerRadius="4dp"
+            custom:pb_colorComplete="#00cc66"
+            custom:pb_colorNormal="@color/blue_normal"
+            custom:pb_colorPressed="@color/blue_pressed"
+            custom:pb_colorProgress="@color/purple_progress"
+            custom:pb_textProgress="Loading"
+            custom:pb_colorError="@color/red_error" />
+    </LinearLayout>
+</layout>
