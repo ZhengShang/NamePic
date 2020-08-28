@@ -8,18 +8,13 @@ import android.graphics.Matrix
 import android.graphics.drawable.Drawable
 import android.net.Uri
 import android.provider.MediaStore
-import android.text.InputFilter
-import android.text.InputFilter.LengthFilter
 import android.text.TextUtils
 import android.view.View
 import android.view.View.OnClickListener
-import android.view.inputmethod.InputMethodManager
 import android.widget.*
-import androidx.appcompat.app.AlertDialog.Builder
 import androidx.appcompat.app.AppCompatActivity
 import androidx.appcompat.widget.Toolbar
 import cn.zhengshang.namepic.R
-import cn.zhengshang.namepic.presenter.TextSettings
 import org.adw.library.widgets.discreteseekbar.DiscreteSeekBar
 import java.io.FileNotFoundException
 import java.io.IOException
@@ -54,25 +49,25 @@ object ViewHelper {
     /**
      * 设置中间显示的文字
      */
-    fun changeCenterText(context: Context, textSettings: TextSettings, centerText: TextView) {
-        val editText = EditText(context)
-        editText.filters = arrayOf<InputFilter>(LengthFilter(1))
-        Builder(context)
-                .setTitle(context.resources.getString(R.string.input_name_title))
-                .setView(editText)
-                .setPositiveButton(context.resources.getString(R.string.ok)) { _, _ ->
-                    if (!TextUtils.isEmpty(editText.text)) {
-                        textSettings.nameText = editText.text.toString()
-                        centerText.text = textSettings.nameText
-                    }
-                }
-                .setNegativeButton(context.resources.getString(R.string.cancel), null)
-                .show()
-        editText.post {
-            val inputMethodManager = context.getSystemService(Context.INPUT_METHOD_SERVICE) as InputMethodManager
-            inputMethodManager.showSoftInput(editText, 0)
-        }
-    }
+//    fun changeCenterText(context: Context, textSettings: TextSettings, centerText: TextView) {
+//        val editText = EditText(context)
+//        editText.filters = arrayOf<InputFilter>(LengthFilter(1))
+//        Builder(context)
+//                .setTitle(context.resources.getString(R.string.input_name_title))
+//                .setView(editText)
+//                .setPositiveButton(context.resources.getString(R.string.ok)) { _, _ ->
+//                    if (!TextUtils.isEmpty(editText.text)) {
+//                        textSettings.nameText = editText.text.toString()
+//                        centerText.text = textSettings.nameText
+//                    }
+//                }
+//                .setNegativeButton(context.resources.getString(R.string.cancel), null)
+//                .show()
+//        editText.post {
+//            val inputMethodManager = context.getSystemService(Context.INPUT_METHOD_SERVICE) as InputMethodManager
+//            inputMethodManager.showSoftInput(editText, 0)
+//        }
+//    }
 
     fun initSeekBar(seekBar: DiscreteSeekBar, min: Int, max: Int) {
         seekBar.min = min

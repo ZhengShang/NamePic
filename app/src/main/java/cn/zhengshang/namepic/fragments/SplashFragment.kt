@@ -22,9 +22,7 @@ class SplashFragment : BaseFragment() {
     }
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
-        view.let {
-            view.postDelayed({ navMain() }, 500)
-        }
+        view.postDelayed({ navMain() }, 500)
     }
 
     private fun navMain() {
