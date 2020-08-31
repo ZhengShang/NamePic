@@ -48,8 +48,13 @@ class PicView : View {
 //        mPicPaint.setColor(Color.RED);
 //Init avgAngle
         mAvgAngle = 360 / nameTextCount.toFloat()
-        //Init y position
-        post { mNameTextYPosition = height / 2 + yPosition }
+    }
+
+    override fun onLayout(changed: Boolean, left: Int, top: Int, right: Int, bottom: Int) {
+        super.onLayout(changed, left, top, right, bottom)
+
+        //Set y position
+        mNameTextYPosition = height / 2 + yPosition
     }
 
     override fun onDraw(canvas: Canvas) {
