@@ -14,4 +14,4 @@ Apk版本[点此下载](https://github.com/ZhengShang/NamePic/blob/master/screen
 ![screenshot_02](https://github.com/ZhengShang/NamePic/blob/master/screenshot/screenshot_02.jpg)
 
 # 说明
-该应用还未在各app市场上架，有缘再说把
+几年前写的app, 代码很有问题, 有缘再改
